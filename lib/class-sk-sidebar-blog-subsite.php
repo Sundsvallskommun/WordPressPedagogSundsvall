@@ -21,6 +21,9 @@ class SK_Post_Sidebar_Blog_Subsite {
 
 	public function get_blog_info_html(){
 		$blog_image = $this->get_blog_image('url');
+
+		if( empty($blog_image) && empty( $this->get_blog_desc() ))
+			return false;
 		?>
 		<div class="sk-blog-info sk-sidebar-panel">
 		<?php if(! empty( $blog_image )) : ?>
