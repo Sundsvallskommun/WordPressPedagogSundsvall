@@ -1,0 +1,20 @@
+@import "../../../sk-theme/assets/css/style.min.css";
+
+@import "../../../../sk-theme/assets/of/of-assets/css/variables";
+//@import "../../of/of-assets/css/variables";
+
+// Child theme adaptations -------------------------------------------------- */
+@import "../../of/components/of-breadcrumbs/of-breadcrumbs.min";
+
+@import "../../bootstrap/components/variables";
+@import "../../bootstrap/components/mixins";
+@import "../../bootstrap/components/navs";
+@import "../../bootstrap/components/forms";
+@import "../../bootstrap/components/glyphicons";
+
+@import "pedagogiska-mixins";
+@import "pedagogiska";
+
+@import "latest-subsite-posts";
+@import "calendar";
+@import "sk-sitemap";
