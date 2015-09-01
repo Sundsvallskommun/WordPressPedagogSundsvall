@@ -33,7 +33,7 @@ class SK_Block_Slider_Special {
 		global $post;
 	?>
 		<div class="block-slider-special sk-main of-inner-padded-b of-clear">
-	  	<div class="block-main of-c-md-4 of-c-lg-5 of-c-xl-6">
+	  	<div class="block-main">
 	    <?php if ( ! empty( $campaign_posts->title ) ) : ?>
 	      <header>
 	        <h2><?php echo $campaign_posts->title; ?></h2>
@@ -63,7 +63,7 @@ class SK_Block_Slider_Special {
 
 	  	</div><!-- .block-main -->
 
-		  <div class="block-sidebar of-c-md-4 of-c-lg-3 of-c-xl-2 of-omega">
+		  <div class="block-sidebar">
 				<?php SKChildTheme\the_calendar_box(); ?>
 		  </div><!-- .sidebar-block -->
 	  </div><!-- .sk-main-padded -->

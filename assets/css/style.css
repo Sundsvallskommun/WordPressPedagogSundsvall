@@ -1828,10 +1828,6 @@ p {
   line-height: 1.3;
 }
 
-.block-slider-special {
-  margin-bottom: 40px;
-}
-
 @media (min-width: 52em) {
   .sk-dropdown-nav header.sk-site .of-sidebar-menu-advanced .of-has-children a span.icon-expand {
     display: inline-block;
@@ -2076,11 +2072,6 @@ ul.of-breadcrumbs > li:first-child a {
 
 /* of-screen-max-md */
 @media (max-width: 52em) {
-  .block-main {
-    padding-right: 0;
-    margin-bottom: 30px;
-  }
-
   .of-has-children a .glyphicon {
     display: none;
   }
@@ -2374,4 +2365,33 @@ h2.tribe-events-page-title {
 }
 .sk-sitemap li.child a {
   font-weight: normal;
+}
+
+.block-slider-special {
+  margin-bottom: 30px;
+  /* of-screen-max-md */
+}
+.block-slider-special .block-main {
+  width: 65.7%;
+  float: left;
+}
+.block-slider-special .block-sidebar {
+  width: 31.7%;
+  float: right;
+  margin-right: 5px;
+}
+@media (max-width: 52em) {
+  .block-slider-special .block-main {
+    width: 100%;
+  }
+  .block-slider-special .block-sidebar {
+    margin-right: 0;
+    width: 100%;
+  }
+}
+@media (max-width: 52em) {
+  .block-slider-special .block-main {
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
 }

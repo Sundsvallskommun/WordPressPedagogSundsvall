@@ -1,0 +1,39 @@
+.block-slider-special{
+	margin-bottom: 30px;
+
+	.block-main{
+		width: 65.7%;
+		float: left;
+	}
+	.block-sidebar{
+		width: 31.7%;
+		float: right;
+		margin-right: 5px;
+	}
+
+	@media (max-width: 72em) {}
+
+
+	@media (max-width: 52em) {
+
+		.block-main{
+			width: 100%;		   
+		}  
+		.block-sidebar{
+			margin-right: 0;
+			width: 100%; 
+		}  
+
+	}
+
+
+	/* of-screen-max-md */
+	@media (max-width: 52em) {
+
+		.block-main{
+		  padding-right: 0;
+		  margin-bottom: 30px;
+		}
+	}
+
+}
