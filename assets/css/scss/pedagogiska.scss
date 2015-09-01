@@ -284,15 +284,12 @@ h1.sk-site-title a{
  * SK articles
  */
 
-.sk-article-panel-wrapper{
-  background: rgba(206, 226, 185, 0.3) none repeat scroll 0 0;
-}
+.sk-article-panel-wrapper{}
 
 .sk-article-panel{
-  margin-bottom: 10px;
-  border-bottom: 1px solid #cacaca;
+  background: rgba(206, 226, 185, 0.3) none repeat scroll 0 0;
+  margin-bottom: 15px;
   padding: 10px 0;
-  //background: #ffffff;
 
   
 
