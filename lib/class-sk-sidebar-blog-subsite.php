@@ -9,7 +9,6 @@ namespace SKChildTheme;
  *
  * @package sk-theme
  */
-echo "tesat";
 class SK_Post_Sidebar_Blog_Subsite {
 	
   /**
