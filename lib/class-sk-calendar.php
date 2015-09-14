@@ -86,10 +86,8 @@
             $cell_content = $this->current_day;
 
             if( in_array( $this->current_day, $this->occupied_days ) ) {
-            	
-            	$cell_content = '<a href="/events/list/?tribe-bar-date=' . $this->current_year . '-' . $this->current_month . '-' . $this->current_day . '">' . $cell_content . '</a>';
-            	$lastest_day = $this->current_day;
-
+            	$cell_content = '<a href="/events/' . $this->current_year . '-' . $this->current_month . '-' . $this->current_day . '/">' . $cell_content . '</a>';
+              $lastest_day = $this->current_day;
             } 
             $this->current_day++;   
             
