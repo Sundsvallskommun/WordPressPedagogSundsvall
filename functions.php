@@ -1,6 +1,4 @@
 <?php
-
-
 /* ------------------------------------------
 |  LOAD UTILITY CLASS, REMOVE FOR PRODUCTION |
  -------------------------------------------- */
@@ -50,6 +48,29 @@ function theme_enqueue_styles() {
     
     //wp_enqueue_script( 'child-js', get_stylesheet_directory_uri() . '/assets/js/app.js', array('jquery', 'jquery-ui-datepicker' ), false, true );
 }
+
+
+
+/**
+ * Set only post type posts to be included in archive
+ *
+ * @since 1.0.0 
+ * 
+ * @param  array $query 
+ *
+ * @return 	null
+ * 
+ */
+function archive_posts( $query ) {
+  if ( is_admin() || ! $query->is_main_query() )
+  	return;
+
+  if ( $query->is_archive() ) {
+ 		$query->set('post_type', 'post');
+  }
+}
+add_action( 'pre_get_posts', 'archive_posts', 1 );
+
 
 
 /**
