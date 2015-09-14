@@ -12,7 +12,11 @@
 		 * If you want to overload this in a child theme then include a file
 		 * called loop-index.php and that will be used instead.
 		 */
-		 query_posts(array('post_type' => 'post') );
+		 query_posts(
+		 	array(
+		 		'post_type' => 'post', 
+		 		'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1 ) 
+		 ));
 		 get_template_part( 'loop', 'index' );
 		?>
   </div>
