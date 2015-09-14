@@ -9,7 +9,7 @@ namespace SKChildTheme;
  *
  * @package sk-theme
  */
-
+echo "tesat";
 class SK_Post_Sidebar_Blog_Subsite {
 	
   /**
@@ -21,22 +21,21 @@ class SK_Post_Sidebar_Blog_Subsite {
 
 	public function get_blog_info_html(){
 		$blog_image = $this->get_blog_image('url');
-
-		if( empty($blog_image) && empty( $this->get_blog_desc() ))
+		$blog_desc = $this->get_blog_desc();
+		if( empty( $blog_image ) && empty( $blog_desc ) )
 			return false;
 		?>
 		<div class="sk-blog-info sk-sidebar-panel">
 		<?php if(! empty( $blog_image )) : ?>
 			<div class="sk-blog-image"><img src="<?php echo $this->get_blog_image('url'); ?>"></div>
 		<?php endif; ?>
-			<div class="sk-blog-desc"><?php echo $this->get_blog_desc(); ?></div>		
+			<div class="sk-blog-desc"><?php echo $blog_desc; ?></div>		
 		</div>
 		
 		<?php
 	}
 
 	public function get_blog_image( $attr ){
-
 
 		switch ( $attr ) {
 			case 'url':

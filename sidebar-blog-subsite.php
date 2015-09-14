@@ -1,7 +1,6 @@
 <?php require_once( 'lib/class-sk-sidebar-blog-subsite.php' ); ?>
 
 <div class="of-c-sm-4 of-c-md-1 of-omega sidebar-blog">
-
 <?php $sk_sidebar_blog_subsite->get_blog_info_html(); ?>
 
 <div class="sk-sidebar-panel panel-white">
