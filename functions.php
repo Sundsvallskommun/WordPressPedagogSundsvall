@@ -36,6 +36,12 @@ require_once( locate_template( '/lib/class-sk-site-info.php' ) );
 $sk_site_info = new SKChildTheme\Sk_Site_Info();
 
 
+// class for events calendar fix
+require_once locate_template( '/lib/class-sk-events-calendar.php' );
+if( class_exists( SK_Events_Calendar ) )
+	$ec = new SK_Events_Calendar();
+
+
 
 /* ------------------------------------
 |  ACTIONS, FILTERS, FUNCTIONS         |
