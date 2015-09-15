@@ -1782,6 +1782,10 @@ select[multiple].input-lg {
   content: "\e260";
 }
 
+header .top-banner {
+  height: 150px;
+}
+
 header.sk-site .of-sidebar-menu-advanced ul ul {
   /*
     display: block !important;
