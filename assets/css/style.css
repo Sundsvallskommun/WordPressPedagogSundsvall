@@ -1983,6 +1983,11 @@ h1.sk-site-title a {
 /**
  * SK articles
  */
+.sk-article-panel-wrapper h5 {
+  margin: 15px 0;
+  padding-left: 3px;
+}
+
 .sk-article-panel {
   background: rgba(206, 226, 185, 0.3) none repeat scroll 0 0;
   margin-bottom: 15px;

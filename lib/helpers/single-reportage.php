@@ -19,10 +19,14 @@ function get_article_panels(){
 			$sk_panel_terms['children'][] = $term;
 	}
 
-	get_article_panel_by_global_category( $parent_category = array( 'organisationsniva' ), $panel_title = __( 'Organisationsnivå', 'sk' ), $offset = '-1' );
-	get_article_panel_by_global_category( $parent_category = array( 'pedagogik', 'amne' ), $panel_title = __( 'Ämnen och pedagogik', 'sk' ), $offset = '-1' );
-	get_article_panel_by_global_category( $parent_category = array(), $panel_title = __( 'Bloggar i samma kategorier', 'sk' ), $offset = 1, $only_subsites = '1' );
-	get_calendar_panel_by_global_category( $parent_category = array(), $panel_title = __( 'Relaterade kalenderhändelser', 'sk' ), $offset = 1, $only_subsites = '1' );
+	?>
+	<h5><?php _e('Relaterade inlägg', 'sk'); ?></h5>
+	<?php
+
+	get_article_panel_by_global_category( $parent_category = array( 'organisationsniva' ), $panel_title = __( 'Verksamheten', 'sk' ), $offset = '-1' );
+	get_article_panel_by_global_category( $parent_category = array( 'pedagogik', 'amne' ), $panel_title = __( 'Ämnet och pedagogiken', 'sk' ), $offset = '-1' );
+	get_article_panel_by_global_category( $parent_category = array(), $panel_title = __( 'Bloggar', 'sk' ), $offset = 1, $only_subsites = '1' );
+	get_calendar_panel_by_global_category( $parent_category = array(), $panel_title = __( 'Kalenderhändelser', 'sk' ), $offset = 1, $only_subsites = '1' );
 
 }
 
