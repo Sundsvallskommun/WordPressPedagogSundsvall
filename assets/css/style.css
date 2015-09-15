@@ -716,6 +716,51 @@ select[multiple].input-lg {
   }
 }
 
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #777777;
+  border-radius: 10px;
+}
+.badge:empty {
+  display: none;
+}
+.btn .badge {
+  position: relative;
+  top: -1px;
+}
+.btn-xs .badge, .btn-group-xs > .btn .badge {
+  top: 0;
+  padding: 1px 5px;
+}
+.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
+  color: #00477a;
+  background-color: #fff;
+}
+.list-group-item > .badge {
+  float: right;
+}
+.list-group-item > .badge + .badge {
+  margin-right: 5px;
+}
+.nav-pills > li > a > .badge {
+  margin-left: 3px;
+}
+
+a.badge:hover, a.badge:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url("../bootstrap/fonts/glyphicons-halflings-regular.eot");
@@ -2107,6 +2152,10 @@ ul.of-breadcrumbs > li:first-child a {
   color: inherit;
 }
 
+.clear-float {
+  clear: both;
+}
+
 .sk-box-type-senaste-inlaggen-subsajter {
   background: #eeeeee;
   border: 1px solid rgba(182, 192, 198, 0.2);
@@ -2399,4 +2448,45 @@ h2.tribe-events-page-title {
     padding-right: 0;
     margin-bottom: 30px;
   }
+}
+
+.comments {
+  margin-top: 100px;
+}
+.comments .avatar {
+  display: none;
+}
+.comments h3 {
+  padding: 10px 0;
+  line-height: normal;
+  float: left;
+  width: 100%;
+}
+.comments h3 .title {
+  float: left;
+}
+.comments .badge {
+  margin-left: 8px;
+  margin-top: 5px;
+  float: left;
+}
+.comments .comment-author {
+  float: left;
+}
+.comments .comment-meta {
+  float: right;
+  font-size: 14px;
+}
+.comments .comment-body {
+  padding: 10px;
+  border: 1px solid #eee;
+  margin-bottom: 20px;
+  background: #f9f9f9;
+}
+.comments .comment-body p {
+  clear: both;
+  display: block;
+}
+.comments .children {
+  margin-left: 25px;
 }

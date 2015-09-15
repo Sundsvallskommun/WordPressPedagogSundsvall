@@ -16,6 +16,7 @@
 			</ul>
 		</div>
 	<?php endwhile; ?>
+	<?php comments_template( '', true );  ?>
   </div>
 </div>
 <?php get_footer(); ?>

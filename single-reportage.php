@@ -39,6 +39,7 @@
           <?php edit_post_link( __( 'Redigera den här sidan', 'sk' ), '<p>', '</p>' ); ?>
         </div>
       <?php endwhile; // end of the loop. ?>
+      <?php comments_template( '', true );  ?>
       </div>
 
         <div class="of-c-sm-4 of-c-md-4 of-c-lg-12 of-c-xl-fixed-2 sk-sidebar of-hide-from-lg">

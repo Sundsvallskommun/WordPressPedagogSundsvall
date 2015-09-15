@@ -29,6 +29,7 @@
           <?php edit_post_link( __( 'Redigera den här sidan', 'sk' ), '<p>', '</p>' ); ?>
         </div>
       <?php endwhile; // end of the loop. ?>
+      <?php comments_template( '', true );  ?>
     </div>
     <?php get_sidebar( 'blog-subsite' ); ?>
   </div>

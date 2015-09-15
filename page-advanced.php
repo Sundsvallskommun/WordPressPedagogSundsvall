@@ -83,7 +83,7 @@ $menu = get_advanced_template_menu();
         </div>
       </div>
     <?php endwhile; // end of the loop. ?>
-
+<?php comments_template( '', true );  ?>
     <?php 
       if ( has_boxes( 'sidebar_boxes', 'get_field' ) ) : ?>
       <div class="of-c-sm-4 of-c-md-4 of-c-lg-12 of-c-xl-fixed-2 of-omega sk-sidebar">

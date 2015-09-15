@@ -23,7 +23,9 @@ get_header(); ?>
 				<?php tribe_get_view(); ?>
 				<?php tribe_events_after_html(); ?>
 			</div> <!-- #tribe-events-pg-template -->
+			<?php comments_template( '', true );  ?>
 	  </div>
+
 		<div class="of-c-sm-4 of-c-md-1 of-omega">
 		<!--[sidebar events ...]-->
 		</div>

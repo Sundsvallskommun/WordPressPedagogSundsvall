@@ -61,7 +61,7 @@ if ( has_boxes( 'sidebar_boxes', 'get_field' ) ) {
         <?php SKChildTheme\the_page_owner(); ?>
 
     	<?php endwhile; // end of the loop. ?>
-
+    <?php comments_template( '', true );  ?>
 
     <?php 
       if ( has_boxes( 'sidebar_boxes_left', 'get_field' ) ) : ?>
