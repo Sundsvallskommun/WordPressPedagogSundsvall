@@ -2,9 +2,7 @@
 /**
  * The template for displaying Archive pages.
  */
-
 get_header(); ?>
-
 <div class="of-wrap">
   <?php if( is_main_site() ) :?>
     <div class="sk-main-padded of-inner">
@@ -24,6 +22,10 @@ get_header(); ?>
 
             elseif ( is_year() ) :
               printf( __( 'Årligt arkiv: %s', 'sk' ), get_the_date( _x( 'Y', 'yearly archives date format', 'sk' ) ) );
+
+            elseif ( is_tax('sitewidecats') ) :
+              $term = get_term_by( 'slug', $term, 'sitewidecats' );
+              printf( __( 'Arkiv: %s', 'sk' ), $term->name );
 
             else :
               _e( 'Arkiv', 'sk' );
