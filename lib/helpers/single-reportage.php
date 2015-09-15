@@ -97,9 +97,11 @@ function get_article_panel_by_global_category( $categories = array(), $panel_tit
 	$term_children = array();
 	foreach ($parent_terms as $parent_term) {
 		$terms = get_the_terms( $post->ID, $taxonomy );
-		foreach ( $terms as $term ){
-			if( $term->parent == $parent_term->term_id ) { //EDIT - Put the right ID here.
-				$term_children[] = $term->slug;
+		if(! empty( $terms )){
+			foreach ( $terms as $term ){
+				if( $term->parent == $parent_term->term_id ) { //EDIT - Put the right ID here.
+					$term_children[] = $term->slug;
+				}
 			}
 		}
 	}
