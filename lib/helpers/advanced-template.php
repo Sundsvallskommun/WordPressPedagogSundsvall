@@ -392,6 +392,14 @@ function the_boxes_block( $field_name = 'boxes_content', $acf_function = 'get_su
   $class = $sidebar !== false ? 'sk-boxes-sidebar' : 'sk-boxes';
   $width = get_sub_field( 'boxes_width');
 
+  // add flexbox to use same height on boxes
+  $flexbox = false;
+  foreach( $boxes as $box ){
+    if( $box->type->slug == 'senaste-inlaggen-subsajter' ){
+      $flexbox = true;
+    }
+  }
+
   ?>
   <?php if ( ! empty( $boxes ) ) : ?>
 
@@ -402,7 +410,9 @@ function the_boxes_block( $field_name = 'boxes_content', $acf_function = 'get_su
         </header>
       <?php endif; ?>
 
-      <ul class="<?php echo $class; ?>">
+
+
+      <ul class="<?php echo $class; ?><?php echo $flexbox == true ? ' flexbox' : ''; ?>">
 
         <?php foreach( $boxes as $box ) : ?>
 
