@@ -20,6 +20,9 @@
     <h4><?php _e( 'Arkiv', 'sk') ?></h4>
     <ul>
       <?php wp_get_archives(); ?>
+
+
+      
     </ul>
   </div>
 </div>
