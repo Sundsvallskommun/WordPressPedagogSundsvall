@@ -5,7 +5,7 @@
     	
     <?php foreach( $panels as $panel ) : ?>
     	<div class="sk-sidebar-panel">
-    	<p><b><?php echo $panel['sk_panel_header']; ?></b></p>
+    	<div class="sidebar-panel-title"><?php echo $panel['sk_panel_header']; ?></div>
     	<?php echo $panel['sk_panel_content']; ?>
     	</div>
     <?php endforeach; ?>
