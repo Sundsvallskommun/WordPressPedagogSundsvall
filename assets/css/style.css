@@ -1870,12 +1870,37 @@ ul ul.disable-sub-menu {
 }
 
 p.of-paragraph-ingress {
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: 600;
+  margin-top: 1em;
 }
 
 p {
   line-height: 1.3;
+}
+
+h1.sk-site-title {
+  font-size: 1.9em;
+}
+
+div#calendar div.box {
+  background-color: #5C6A70;
+}
+
+div#calendar div.box-content {
+  background: rgba(182, 192, 198, 0.4) none repeat scroll 0% 0%;
+}
+
+.sk-box-type-bild p {
+  font-weight: 600;
+}
+
+.sk-featured-image-single {
+  margin-bottom: 1em;
+}
+
+.sidebar-panel-title {
+  font-weight: bold;
 }
 
 @media (min-width: 52em) {
@@ -2097,7 +2122,7 @@ ul.of-breadcrumbs > li {
 
 ul.of-breadcrumbs > li:after {
   display: inline-block;
-  content: '›';
+  content: 'ÔÇ║';
   color: #c2c2c2;
   padding: 0 .2em 0 .4em;
 }
@@ -2213,6 +2238,10 @@ ul.of-breadcrumbs > li:first-child a {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+}
+
+.lt-ie10 .sk-boxes.flexbox {
+  background-color: red;
 }
 
 .sk-box-type-senaste-inlaggen-subsajter {
