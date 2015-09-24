@@ -11,7 +11,7 @@ div#calendar div.box{
     left:0px;
     width:100%;
     height:40px;
-    background-color: $gronsta2 ;      
+    background-color: #5C6A70;      
 }
  
 div#calendar div.header{
@@ -51,7 +51,8 @@ div#calendar div.header a.next{
  
 div#calendar div.box-content{
     /*border:1px solid #787878 ;*/
-    background: rgba(206, 226, 185, 0.3);
+    /*background: rgba(206, 226, 185, 0.3);*/
+    background: rgba(182, 192, 198, 0.4) none repeat scroll 0% 0%;
     border: 1px solid rgba(182, 192, 198, 0.2);
     border-top:none;
     width: 100%;
