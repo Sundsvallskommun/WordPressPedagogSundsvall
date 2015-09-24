@@ -1849,6 +1849,7 @@ header.sk-site ul > li > ul > li ul li a{
 }
 
 header.sk-site .of-sidebar-menu-advanced {
+  z-index: 1001;
   overflow: inherit;
 }
 
