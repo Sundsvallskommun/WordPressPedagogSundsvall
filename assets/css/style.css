@@ -2239,10 +2239,6 @@ ul.of-breadcrumbs > li:first-child a {
   flex-wrap: wrap;
 }
 
-.lt-ie10 .sk-boxes.flexbox {
-  background-color: red;
-}
-
 .sk-box-type-senaste-inlaggen-subsajter {
   background: #eeeeee;
   border: 1px solid rgba(182, 192, 198, 0.2);
