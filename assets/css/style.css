@@ -2114,7 +2114,7 @@ ul.of-breadcrumbs > li {
 
 ul.of-breadcrumbs > li:after {
   display: inline-block;
-  content: 'ÔÇ║';
+  content: '›';
   color: #c2c2c2;
   padding: 0 .2em 0 .4em;
 }
