@@ -35,14 +35,6 @@ $global_categories = new SKChildTheme\SK_Global_Categories();
 require_once( locate_template( '/lib/class-sk-site-info.php' ) );
 $sk_site_info = new SKChildTheme\Sk_Site_Info();
 
-
-// class for events calendar fix
-require_once locate_template( '/lib/class-sk-events-calendar.php' );
-if( class_exists( SK_Events_Calendar ) )
-	$ec = new SK_Events_Calendar();
-
-
-
 /* ------------------------------------
 |  ACTIONS, FILTERS, FUNCTIONS         |
  -------------------------------------- */
@@ -68,7 +60,8 @@ function theme_enqueue_styles() {
  * 
  */
 function archive_posts( $query ) {
-  if ( is_admin() || ! $query->is_main_query() )
+
+  if ( is_admin() || ! $query->is_main_query() || $query->query['post_type'] == 'tribe_events' )
   	return;
 
   if ( $query->is_archive() ) {

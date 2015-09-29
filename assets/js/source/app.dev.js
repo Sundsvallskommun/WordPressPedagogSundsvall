@@ -3,7 +3,6 @@
 	
 	$(function() {
     
-  
     // disable sub-menu from header navigation
     $('header.sk-site li').each(function(n) {
       $(this).find('ul').addClass('disable-sub-menu');
@@ -66,7 +65,6 @@
         titleSrc: 'data-title'
       }
     });
-
     // Initialize sidebar menu advanced 
     if($('.of-sidebar-menu-advanced').length > 0) {
       var sidebar_menu_advanced = new OF_Sidebar_Menu_Advanced('.of-sidebar-menu-advanced');
