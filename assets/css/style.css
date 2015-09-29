@@ -2062,10 +2062,10 @@ h1.sk-site-title a {
 .sk-article-panel .sk-article-panel-title {
   padding: 0px 15px;
   font-size: 17px;
-  color: #006b37;
+  color: #485258;
 }
 .sk-article-panel .sk-article-panel-list {
-  padding: 0px 15px;
+  padding: 5px 15px;
 }
 .sk-article-panel .sk-article-panel-list a {
   font-size: 14px;
@@ -2100,7 +2100,14 @@ h1.sk-site-title a {
 }
 
 .sk-sidebar-panel-list {
-  padding: 0px 15px;
+  padding: 5px 15px;
+}
+
+.sk-sidebar-panel-list a {
+  font-size: 14px;
+  font-weight: normal;
+  color: #00477a;
+  fill: #00477a;
 }
 
 .sk-article-terms-title {
@@ -2260,7 +2267,7 @@ ul.of-breadcrumbs > li:first-child a {
   font-size: 12px;
   line-height: 1.428571429;
   border-radius: 12px;
-  background: #dddddd;
+  background: transparent;
   float: left;
   margin-right: 5px;
 }
