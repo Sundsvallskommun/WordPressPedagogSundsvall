@@ -316,7 +316,6 @@ h1.sk-site-title a{
   padding: 10px 0;
 
 
-  
 
   ul{
     line-height: 1.2;
@@ -326,11 +325,11 @@ h1.sk-site-title a{
     padding: 0px 15px;
     font-size: 17px;
     //background: $gronsta3;
-    color: $gronsta2;
+    color: #485258;
   }
 
   .sk-article-panel-list{
-    padding: 0px 15px;
+    padding: 5px 15px;
     
   }
 
@@ -375,7 +374,14 @@ h1.sk-site-title a{
 }
 
 .sk-sidebar-panel-list{
-  padding: 0px 15px;
+  padding: 5px 15px;
+}
+.sk-sidebar-panel-list a{
+  font-size: 14px;
+  font-weight: normal;
+  color: #00477a;
+  fill: #00477a;
+ 
 }
 .sk-article-terms-title{
   float:left;
