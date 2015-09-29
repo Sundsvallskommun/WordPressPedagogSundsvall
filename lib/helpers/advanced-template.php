@@ -345,7 +345,7 @@ function the_latest_subsite_posts_box( $box ) {
             }
         ?>
           <li>
-            <a class="of-dark-link" href="<?php echo $post->link; ?>"><div class="icon-circle-sm"><span title="<?php echo $label; ?>" class="<?php echo $icon; ?>"></span></div>
+            <a href="<?php echo $post->link; ?>"><div class="icon-circle-sm"><span title="<?php echo $label; ?>" class="<?php echo $icon; ?>"></span></div>
               <?php echo $post->post_title; ?>
             </a>
           </li>
