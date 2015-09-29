@@ -1891,10 +1891,6 @@ h1.sk-site-title {
   margin-bottom: 1em;
 }
 
-.sidebar-panel-title {
-  font-weight: bold;
-}
-
 @media (min-width: 52em) {
   .sk-dropdown-nav header.sk-site .of-sidebar-menu-advanced .of-has-children a span.icon-expand {
     display: inline-block;
@@ -2064,17 +2060,17 @@ h1.sk-site-title a {
   line-height: 1.2;
 }
 .sk-article-panel .sk-article-panel-title {
-  padding: 0 10px;
+  padding: 0px 15px;
   font-size: 17px;
   color: #006b37;
 }
 .sk-article-panel .sk-article-panel-list {
-  padding: 5px 10px;
+  padding: 0px 15px;
 }
 .sk-article-panel .sk-article-panel-list a {
   font-size: 14px;
   font-weight: normal;
-  padding: 3px 0;
+  padding: 3px 0px 10px;
   display: block;
 }
 
@@ -2083,11 +2079,28 @@ h1.sk-site-title a {
 }
 
 .sk-sidebar-panel {
-  background: #f7f7f7;
-  border: 1px solid #e7e7e7;
+  background: rgba(252, 197, 174, 0.1) none repeat scroll 0% 0%;
+  border: 0px solid #e7e7e7;
   margin-bottom: 15px;
-  padding: 10px;
-  border-radius: 3px;
+  padding: 10px 0;
+  border-radius: 0px;
+  font-size: 14px;
+}
+
+.sk-sidebar-panel-wrapper h5 {
+  margin: 15px 0;
+  padding-left: 3px;
+}
+
+.sk-sidebar-panel-title {
+  font-weight: normal;
+  font-size: 17px;
+  color: #d64c13;
+  padding: 0px 15px 3px 15px;
+}
+
+.sk-sidebar-panel-list {
+  padding: 0px 15px;
 }
 
 .sk-article-terms-title {
