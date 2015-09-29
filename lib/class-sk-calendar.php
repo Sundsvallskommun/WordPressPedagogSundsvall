@@ -55,7 +55,8 @@
                     }
                      
                     $content.='</ul>';
-                     
+        
+                    $content .= '<div class="link-to-calendar"><a href="' . get_bloginfo('url') . '/' . Tribe__Events__Main::instance()->getOption( 'eventsSlug', 'events' ) . '/">' . __('Öppna kalender', 'sk') . '</a></div>';                  
                     $content.='<div class="clear"></div>';     
        
                   $content.='</div>';
@@ -86,7 +87,7 @@
             $cell_content = $this->current_day;
 
             if( in_array( $this->current_day, $this->occupied_days ) ) {
-            	$cell_content = '<a href="/events/' . $this->current_year . '-' . $this->current_month . '-' . $this->current_day . '/">' . $cell_content . '</a>';
+            	$cell_content = '<a href="'. get_bloginfo( 'url' ) . '/' . Tribe__Events__Main::instance()->getOption( 'eventsSlug', 'events' ) . '/' . $this->current_year . '-' . $this->current_month . '-' . $this->current_day . '/">' . $cell_content . '</a>';
               $lastest_day = $this->current_day;
             } 
             $this->current_day++;   
@@ -108,7 +109,6 @@
      
 
     private function create_navigation(){
-         
         $next_month = $this->current_month == 12 ? 1 : intval( $this->current_month) + 1;
         $next_year = $this->current_month == 12 ? intval( $this->current_year) + 1 : $this->current_year;
         $pre_month = $this->current_month == 1 ? 12 : intval( $this->current_month ) - 1;
@@ -116,7 +116,7 @@
          
         return
             '<div class="header">'.
-                '<span class="title">'.date('M Y', strtotime( $this->current_year . '-' . $this->current_month . '-1' ) ) . '</span>'.
+                '<a href="' . get_bloginfo('url') . '/' . Tribe__Events__Main::instance()->getOption( 'eventsSlug', 'events' ) . '/"><span class="title">'.date('F Y', strtotime( $this->current_year . '-' . $this->current_month . '-1' ) ) . '</span></a>'.
             '</div>';
     }
 

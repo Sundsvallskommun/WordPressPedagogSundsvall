@@ -2278,6 +2278,7 @@ div#calendar {
   margin: 0px auto;
   padding: 0px;
   width: 100%;
+  position: relative;
   /*font-family:Helvetica, "Times New Roman", Times, serif;*/
 }
 
@@ -2311,9 +2312,14 @@ div#calendar div.header a.prev, div#calendar div.header a.next {
   color: #FFF;
 }
 
-div#calendar div.header span.title {
-  color: #FFF;
+div#calendar div.header a
+div#calendar div.header a:hover,
+div#calendar div.header a:active,
+div#calendar div.header a:visited,
+div#calendar div.header a span.title {
+  color: #fff;
   font-size: 12px;
+  font-weight: normal;
 }
 
 div#calendar div.header a.prev {
@@ -2412,6 +2418,16 @@ div#calendar ul.dates li.occupied {
 
 div.clear {
   clear: both;
+}
+
+.link-to-calendar {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+.link-to-calendar a {
+  font-size: 14px;
+  font-weight: normal;
 }
 
 #tribe-bar-form input[type="text"] {
