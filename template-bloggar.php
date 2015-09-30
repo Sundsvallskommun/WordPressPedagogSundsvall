@@ -5,7 +5,8 @@
 
 	$args = array(
 		'network_id'	=> $wpdb->siteid,
-		'offset'			=> 1
+		'offset'			=> 1,
+		'deleted'			=> false
 		);
 	$sites = wp_get_sites( $args );
 
