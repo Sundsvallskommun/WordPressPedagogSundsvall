@@ -55,11 +55,12 @@ if ( has_boxes( 'sidebar_boxes', 'get_field' ) ) {
     				<?php the_content(); ?>
     			</div>
           <?php edit_post_link( __( 'Redigera den här sidan', 'sk' ), '<p>', '</p>' ); ?>
+          <?php SKChildTheme\the_page_owner(); ?>
+         <?php comments_template( '', true );  ?>
     		</div>
 
         <!-- Page Owner -->
-        <?php SKChildTheme\the_page_owner(); ?>
-         <?php comments_template( '', true );  ?>
+
     	<?php endwhile; // end of the loop. ?>
    
 
