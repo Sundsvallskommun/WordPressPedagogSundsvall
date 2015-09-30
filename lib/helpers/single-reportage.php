@@ -24,7 +24,7 @@ function get_article_panels(){
 	<?php
 
 	get_article_panel_by_global_category( $parent_category = array( 'organisationsniva' ), $panel_title = __( 'Verksamhet', 'sk' ), $offset = '-1' );
-	get_article_panel_by_global_category( $parent_category = array( 'pedagogik', 'amne' ), $panel_title = __( 'Ämne och pedagogik', 'sk' ), $offset = '-1' );
+	get_article_panel_by_global_category( $parent_category = array( 'pedagogik', 'amne' ), $panel_title = __( 'Ämne & pedagogik', 'sk' ), $offset = '-1' );
 	get_article_panel_by_global_category( $parent_category = array(), $panel_title = __( 'Bloggar', 'sk' ), $offset = 1, $only_subsites = '1' );
 	get_calendar_panel_by_global_category( $parent_category = array(), $panel_title = __( 'Kalender', 'sk' ), $offset = 1, $only_subsites = '1' );
 
