@@ -45,6 +45,9 @@ header.sk-site .of-sidebar-menu-advanced ul li.of-active a {
   header.sk-site .of-sidebar-menu-advanced ul li.of-active-ancestor, 
   header.sk-site .of-sidebar-menu-advanced ul li.of-active{}
 
+header.sk-site .of-sidebar-menu-advanced ul li ul li.menu-item-has-children ul.sub-menu{
+  display: none !important;
+}
 
 ul ul.disable-sub-menu {
   display: none !important; // !important needed because the javascript automatically opens up active elements.

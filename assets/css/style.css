@@ -1861,6 +1861,10 @@ header.sk-site .of-sidebar-menu-advanced ul li.of-active a {
   border-color: transparent;
 }
 
+header.sk-site .of-sidebar-menu-advanced ul li ul li.menu-item-has-children ul.sub-menu {
+  display: none !important;
+}
+
 ul ul.disable-sub-menu {
   display: none !important;
 }
