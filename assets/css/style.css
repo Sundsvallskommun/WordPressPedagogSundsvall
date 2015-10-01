@@ -2122,6 +2122,10 @@ h1.sk-site-title a {
   padding: 0;
 }
 
+.sk-blog-info.sk-sidebar-panel .sk-blog-desc {
+  padding-top: 15px;
+}
+
 .sk-article-terms-title {
   float: left;
   padding-right: 5px;
@@ -2511,11 +2515,27 @@ div.clear {
   width: 25%;
 }
 
+#tribe-bar-form .tribe-bar-submit input[type="submit"] {
+  padding: 10px;
+  background: rgba(182, 192, 198, 0.4);
+}
+
 .tribe-bar-search-filter {
   float: left;
   margin-bottom: 0;
   padding: 15px;
   width: 47%;
+}
+
+.tribe-events-notices {
+  background: rgba(182, 192, 198, 0.4);
+  border: 0px solid #bce8f1;
+  color: #5c6a70;
+  border-radius: 0px;
+}
+
+#tribe-bar-form #tribe-bar-views {
+  background: rgba(182, 192, 198, 0.4);
 }
 
 .tribe-bar-views-inner {

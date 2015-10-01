@@ -238,6 +238,10 @@ div.clear{
     padding: 15px 10px;
     width: 25%;
 }
+#tribe-bar-form .tribe-bar-submit input[type="submit"] {
+    padding: 10px;
+    background: rgba(182, 192, 198, 0.4);
+}
 
 .tribe-bar-search-filter {
     float: left;
@@ -246,6 +250,18 @@ div.clear{
     width: 47%;
 }
 
+.tribe-events-notices {
+    background: rgba(182, 192, 198, 0.4);
+    border: 0px solid #bce8f1;
+    color: #5c6a70;
+    
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+#tribe-bar-form #tribe-bar-views{
+    background: rgba(182, 192, 198, 0.4);
+
+}
 .tribe-bar-views-inner {
     padding: 25px 0 58px;
 }
