@@ -218,7 +218,22 @@ function get_latest_subsite_posts_box( $box ) {
         'terms' => $data->categories,
         'field' => 'slug'
       )
-    )
+    ),
+
+    'meta_query' => array(
+      'relation' => 'OR',
+        array(
+          'key' => '_EventEndDate',
+          'value' => current_time('mysql'),
+          'type' => 'date',
+          'compare' => '>'
+        ),
+        array(
+          'key' => '_EventEndDate',
+          'value' => '',
+          'compare' => 'NOT EXISTS'
+        ),        
+      )
     
   );
 
@@ -237,14 +252,13 @@ function get_latest_subsite_posts_box( $box ) {
 
       // No need to proceed if the subsite do not use global categories
       if( $use_global_categories == 'on' ) {
-        
+
         $posts = get_posts( $args );
 
         // Loop posts and set certain values
         foreach( $posts as $key => $post ) {
           
           setup_postdata( $post );
-
           $excerpt_length = has_post_thumbnail( $post->ID ) ? 65 : 100;
           $posts[ $key ]->excerpt = get_excerpt_max_charlength( $excerpt_length );
           $posts[ $key ]->link = get_permalink( $post->ID );
