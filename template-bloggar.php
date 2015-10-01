@@ -24,6 +24,14 @@
 <div class="of-wrap">
   <div class="sk-main-padded of-inner of-clear">
 
+      <?php while ( have_posts() ) : the_post(); ?>
+      <?php edit_post_link( __( 'Redigera den här sidan', 'sk' ), '<p>', '</p>' ); ?>
+    	<h1><?php the_title(); ?></h1>
+				<div class="sk-entry-content">
+    			<?php the_content(); ?>
+    		</div>
+    	<?php endwhile; ?>
+    	
 		<?php if( !empty( $sites ) ) : ?>
 		<div class="sk-main sk-latest-posts-block list-blogs">  		  	
 			<ul class="sk-grid-list">  
