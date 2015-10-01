@@ -558,7 +558,13 @@ function custom_breadcrumbs() {
       if ( get_post_type() != 'post' ) {
         $post_type = get_post_type_object(get_post_type());
         $slug = $post_type->rewrite;
+
+      if( $post_type->name == 'tribe_events' )
+        echo ' <li><a href="' . $homeLink . '/kalender/">' . __('Kalender', 'sk') . '</a></li>';
+      else
         echo ' <li><a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a></li>';
+
+        
         if ($showCurrent == 1) echo ' ' . $delimiter . ' ' . $before . get_the_title() . $after;
       } else {
         $cat = get_the_category(); $cat = $cat[0];
@@ -578,7 +584,11 @@ function custom_breadcrumbs() {
  
     } elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
       $post_type = get_post_type_object(get_post_type());
-      echo $before . $post_type->labels->singular_name . $after;
+      if( $post_type->name == 'tribe_events' )
+        echo $before . __('Kalender', 'sk') . $after;
+      else
+        echo $before . $post_type->labels->singular_name . $after;
+
  
     } elseif ( is_attachment() ) {
       $parent = get_post($post->post_parent);
