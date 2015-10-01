@@ -2118,6 +2118,10 @@ h1.sk-site-title a {
   fill: #00477a;
 }
 
+.sk-blog-info.sk-sidebar-panel {
+  padding: 0;
+}
+
 .sk-article-terms-title {
   float: left;
   padding-right: 5px;
