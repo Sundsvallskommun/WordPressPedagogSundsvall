@@ -68,7 +68,6 @@
      
 
     private function show_day( $cell_number ) {
-         
         if( $this->current_day == 0 ) {
              
             $first_day_of_the_week = date( 'N', strtotime( $this->current_year . '-' . $this->current_month . '-01' ) );
@@ -87,7 +86,8 @@
             $cell_content = $this->current_day;
 
             if( in_array( $this->current_day, $this->occupied_days ) ) {
-            	$cell_content = '<a href="'. get_bloginfo( 'url' ) . '/' . Tribe__Events__Main::instance()->getOption( 'eventsSlug', 'events' ) . '/' . $this->current_year . '-' . $this->current_month . '-' . $this->current_day . '/">' . $cell_content . '</a>';
+              //$cell_content = '<a href="'. get_bloginfo( 'url' ) . '/' . Tribe__Events__Main::instance()->getOption( 'eventsSlug', 'events' ) . '/' . $this->current_year . '-' . $this->current_month . '-' . $this->current_day . '/">' . $cell_content . '</a>';
+            	$cell_content = '<a href="'. get_bloginfo( 'url' ) . '/' . Tribe__Events__Main::instance()->getOption( 'eventsSlug', 'events' ) . '/' . $this->current_date . '/">' . $cell_content . '</a>';
               $lastest_day = $this->current_day;
             } 
             $this->current_day++;   
