@@ -296,7 +296,6 @@ function the_latest_subsite_posts_box( $box ) {
   $link = get_field( 'latest_subsite_posts_title_link', $box->post->ID );
   $img_data = get_field( 'latest_subsite_posts_image', $box->post->ID );
   $image = wp_get_attachment_image_src( $img_data['ID'], 'full' );
-  //\util::debug( $image );
   
   if ( empty( $latest_posts->posts ) ) : ?>
     <?php return; ?>
