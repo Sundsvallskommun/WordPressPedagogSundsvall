@@ -2555,6 +2555,10 @@ h2.tribe-events-page-title {
   text-align: left;
 }
 
+#tribe-events-header .tribe-events-sub-nav {
+  display: none;
+}
+
 .single-tribe_events h2.tribe-events-single-event-title {
   margin: 0 0 0.4rem;
   font-size: 2.0em;
