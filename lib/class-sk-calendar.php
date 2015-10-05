@@ -116,7 +116,7 @@
          
         return
             '<div class="header">'.
-                '<a href="' . get_bloginfo('url') . '/' . Tribe__Events__Main::instance()->getOption( 'eventsSlug', 'events' ) . '/"><span class="title">'.date('F Y', strtotime( $this->current_year . '-' . $this->current_month . '-1' ) ) . '</span></a>'.
+                '<a href="' . get_bloginfo('url') . '/' . Tribe__Events__Main::instance()->getOption( 'eventsSlug', 'events' ) . '/"><span class="title">'.ucfirst( date_i18n('F Y', strtotime( $this->current_year . '-' . $this->current_month . '-1' ) ) ) . '</span></a>'.
             '</div>';
     }
 
