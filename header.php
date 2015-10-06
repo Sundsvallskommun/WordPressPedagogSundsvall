@@ -16,9 +16,10 @@
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ) ;?>/assets/css/style<?php if ( PRODUCTION_MODE ) echo '.min'; ?>.css">
 		
-		<?php //need to set this in header due to events calendar. ?>
-		<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
-
+		<?php //need to set jquery in header due to events calendar. ?>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="<?php bloginfo( 'template_directory' ) ;?>/assets/js/lib/jquery-2.1.1.min.js"><\/script>')</script>
+		
 		<script src="<?php bloginfo( 'template_directory' ) ;?>/assets/js/lib/modernizr-2.8.1.min.js"></script>
 		<?php wp_head(); ?>
 	</head>

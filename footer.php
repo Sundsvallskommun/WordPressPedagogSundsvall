@@ -19,10 +19,6 @@
 
 					<div class="of-modal-backdrop"></div>
 				</div>
-
-				
-				<script>window.jQuery || document.write('<script src="' + '<?php bloginfo( 'template_directory' ) ;?>' + '/assets/js/lib/jquery-2.1.1.min.js"><\/script>')</script>
-				
 				<script>
 						var ajax_url = '<?php bloginfo( 'url' ); ?>/wp-admin/admin-ajax.php';
 				</script>
