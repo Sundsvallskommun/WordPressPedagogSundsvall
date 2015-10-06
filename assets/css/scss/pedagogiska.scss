@@ -3,6 +3,7 @@
 
 header .top-banner{
   height: 130px;
+
 }
 
 header.sk-site .of-sidebar-menu-advanced ul ul {
@@ -269,7 +270,7 @@ h1.sk-site-title a{
   }
 
   .sk-blog-desc{
-
+    padding: 5px 15px 15px 15px;
   }
 
 
@@ -392,9 +393,7 @@ h1.sk-site-title a{
 .sk-blog-info.sk-sidebar-panel{
   padding: 0;
 }
-.sk-blog-info.sk-sidebar-panel .sk-blog-desc{
-  padding-top:  15px;
-}
+
 .sk-article-terms-title{
   float:left;
   padding-right: 5px;

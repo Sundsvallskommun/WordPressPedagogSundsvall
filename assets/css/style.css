@@ -2030,6 +2030,9 @@ h1.sk-site-title a {
   height: auto;
   margin-bottom: 10px;
 }
+.sk-blog-info .sk-blog-desc {
+  padding: 5px 15px 15px 15px;
+}
 
 .sk-sidebar-panel .sk-sidebar-panel-row {
   border-bottom: 1px solid #e7e7e7;
@@ -2120,10 +2123,6 @@ h1.sk-site-title a {
 
 .sk-blog-info.sk-sidebar-panel {
   padding: 0;
-}
-
-.sk-blog-info.sk-sidebar-panel .sk-blog-desc {
-  padding-top: 15px;
 }
 
 .sk-article-terms-title {
