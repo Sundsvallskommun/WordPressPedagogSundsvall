@@ -8,6 +8,7 @@
       $(this).find('ul').addClass('disable-sub-menu');
     });
 
+    // remove class disable sub menu on mobile nav activation
     $( '.of-menu-toggle' ).on('click', function(){
       $('header.sk-site li').each(function(n) {
         $(this).find('ul').removeClass('disable-sub-menu');
@@ -18,10 +19,9 @@
       function() {
         if( $('.of-sidebar-menu-advanced-active').length > 0 ){
           return false;          
-
         }
           
-         $( this ).find('.sub-menu').removeClass('disable-sub-menu');
+        $( this ).find('.sub-menu').removeClass('disable-sub-menu');
         $( this ).find('.sub-menu').show();
         
         }, function(e) {
