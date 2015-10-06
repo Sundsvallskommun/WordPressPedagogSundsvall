@@ -228,10 +228,21 @@ function get_calendar_panel_by_global_category( $categories = array(), $panel_ti
 				'terms'    => $categories,
 			),
 		),
-	);		
+		'meta_query' => array(
+      'relation' => 'AND',
+        array(
+          'key' => '_EventEndDate',
+          'value' => current_time('mysql'),
+          'type' => 'date',
+          'compare' => '>'
+        )      
+      )
+		);
+
+		$posts = get_posts( $args );		
 	}
 
-	$posts = get_posts( $args );
+	
 	wp_reset_query();	
 	html_output( $posts, $terms = false, $panel_title );
 	
