@@ -7,15 +7,22 @@
     $('header.sk-site li').each(function(n) {
       $(this).find('ul').addClass('disable-sub-menu');
     });
-     
-    //$( 'header.sk-site .of-sidebar-menu-advanced .of-has-children' ).find('.sub-menu').hide();
+
+    $( '.of-menu-toggle' ).on('click', function(){
+      $('header.sk-site li').each(function(n) {
+        $(this).find('ul').removeClass('disable-sub-menu');
+      });
+    });
+
     $( 'header.sk-site .of-sidebar-menu-advanced .of-has-children' ).hover(
       function() {
-        if( $('.of-sidebar-menu-advanced-active').length > 0 )
+        if( $('.of-sidebar-menu-advanced-active').length > 0 ){
           return false;          
+
+        }
+          
          $( this ).find('.sub-menu').removeClass('disable-sub-menu');
         $( this ).find('.sub-menu').show();
-        //alert('da');
         
         }, function(e) {
         if( $('.of-sidebar-menu-advanced-active').length > 0 )

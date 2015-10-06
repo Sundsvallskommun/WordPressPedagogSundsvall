@@ -1861,7 +1861,7 @@ header.sk-site .of-sidebar-menu-advanced ul li.of-active a {
   border-color: transparent;
 }
 
-header.sk-site .of-sidebar-menu-advanced ul li ul li.menu-item-has-children ul.sub-menu {
+body:not(.of-sidebar-menu-advanced-active) header.sk-site .of-sidebar-menu-advanced ul li ul li.menu-item-has-children ul.sub-menu {
   display: none !important;
 }
 
