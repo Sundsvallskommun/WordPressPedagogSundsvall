@@ -68,6 +68,8 @@
      
 
     private function show_day( $cell_number ) {
+
+
         if( $this->current_day == 0 ) {
              
             $first_day_of_the_week = date( 'N', strtotime( $this->current_year . '-' . $this->current_month . '-01' ) );
@@ -86,7 +88,6 @@
             $cell_content = $this->current_day;
 
             if( in_array( $this->current_day, $this->occupied_days ) ) {
-              //$cell_content = '<a href="'. get_bloginfo( 'url' ) . '/' . Tribe__Events__Main::instance()->getOption( 'eventsSlug', 'events' ) . '/' . $this->current_year . '-' . $this->current_month . '-' . $this->current_day . '/">' . $cell_content . '</a>';
             	$cell_content = '<a href="'. get_bloginfo( 'url' ) . '/' . Tribe__Events__Main::instance()->getOption( 'eventsSlug', 'events' ) . '/' . $this->current_date . '/">' . $cell_content . '</a>';
               $lastest_day = $this->current_day;
             } 
@@ -98,7 +99,6 @@
             $this->current_date = null;
             $cell_content = null;
         }
-         
 
         if( !empty( $lastest_day ) && in_array( $lastest_day, $this->occupied_days ) ) {
         	return '<li id="li-'.$this->current_date.'" class="'.($cell_number%7==1?' start ':($cell_number%7==0?' end ':' ')).($cell_content==null?'mask':'').' occupied">'.$cell_content.'</li>';
@@ -219,15 +219,20 @@
 
 				$startdate = get_post_meta( $post->ID, '_EventStartDate', true );
 				$enddate = get_post_meta( $post->ID, '_EventEndDate', true );
+        
 
-				$day = date('d', strtotime( $startdate ));
+        $dates = $this->date_range( $startdate, $enddate );
 				$month = date('m', strtotime( $startdate ));
 
 				$todays_month = date('m');
 
-				if( $todays_month == $month ) {
-					$this->occupied_days []= $day;
-				}
+          foreach ( $dates as $date ) {
+            if( $todays_month == date( 'm', strtotime( $date ) ) && strtotime( date('Y-m-d') ) <= strtotime( $date ) ) {
+               $this->occupied_days[] = date('d', strtotime( $date ) );
+            } 
+          }
+					
+				
 
 			}
 
@@ -236,5 +241,29 @@
 		wp_reset_query();
 
 	}
+
+  /**
+   * Takes two dates as YYYY-MM-DD and creates an array of the dates between
+   * 
+   * @param  string date
+   * @param  string date
+   * @return array dates
+   */
+  public function date_range( $date_from, $date_to ){
+
+    $range = array();
+
+    $i_date_from = mktime( 1, 0, 0, substr( $date_from, 5, 2 ), substr( $date_from, 8, 2 ), substr( $date_from, 0, 4 ) );
+    $i_date_to = mktime( 1, 0, 0, substr( $date_to, 5, 2 ), substr( $date_to, 8, 2 ), substr( $date_to, 0, 4 ) );
+
+    if( $i_date_to >= $i_date_fro ){
+        array_push( $range, date( 'Y-m-d', $i_date_from ) ); // first entry
+        while ( $i_date_from < $i_date_to ){
+            $i_date_from += 86400; // add 24 hours
+            array_push( $range, date( 'Y-m-d', $i_date_from ) );
+        }
+    }
+    return $range;
+}
      
 }
