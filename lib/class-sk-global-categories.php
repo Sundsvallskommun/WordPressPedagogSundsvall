@@ -53,7 +53,14 @@ class SK_Global_Categories {
 
     // Add action to listen to updating of the global categories option
     if( get_current_blog_id() != 1 ) {
-      add_action( 'update_option_sk_use_global_categories', array( $this, 'update_transient' ), 10,  2 );  
+
+      if( is_admin() ){
+        if(isset($_POST['sk_hide_global_categories'])){
+          $this->update_transient();
+        }
+      }
+
+      //add_action( 'update_option_sk_use_global_categories', array( $this, 'update_transient' ), 10,  2 );  
       add_action( 'init', array( $this, 'sync_global_terms' ) );
     }
 
@@ -208,15 +215,24 @@ class SK_Global_Categories {
    * @param  string $new_value
    * 
    */
-  public function update_transient( $old_value, $new_value ) {
+  public function update_transient() {
+
     $use_global_categories = get_option( 'sk_use_global_categories' );
+    $old_value = $use_global_categories['use'];
+
+    if(isset( $_POST['sk_use_global_categories']['use'] ) && $_POST['sk_use_global_categories']['use'] == 'on' ){
+      $new_value = 'on';  
+    }else{
+      $new_value = 'off';
+    }
 
     // If we activate the global categories
-    if( $new_value == 'on' && ( $new_value != $old_value ) ) {
-
+    if( $new_value == 'on' ) {
       // Set a transient so we know that we wish to sync the global categories
       // later. This i because we cannot do this here. They do not exist yet.
       set_transient( 'sk_global_categories_on', true );
+    }else{
+      delete_transient( 'sk_global_categories_on' );
     }
 
   }
@@ -235,7 +251,7 @@ class SK_Global_Categories {
     if( get_transient( 'sk_global_categories_on' ) ) {
 
       // Remove the transient
-      delete_transient( 'sk_global_categories_on' );
+      //delete_transient( 'sk_global_categories_on' );
 
       // Get the terms from mainsite
       $terms = $this->get_all_global_terms();
