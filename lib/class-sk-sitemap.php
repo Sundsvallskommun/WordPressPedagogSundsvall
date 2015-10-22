@@ -94,6 +94,8 @@ class SK_Sitemap {
 
   	$args = array(
   		'offset'	=> 1,
+      'public' => 1, 
+      'deleted' => 0
   	);
 
   	$sites = wp_get_sites( $args );
