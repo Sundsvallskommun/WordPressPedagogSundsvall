@@ -169,7 +169,7 @@ function the_campaign_block() {
 
 
 /**
- * Gets the latests subsite posts from fiven global categories
+ * Gets the latests subsite posts from given global categories
  *
  * @since  1.0.0
  * 
@@ -238,7 +238,8 @@ function get_latest_subsite_posts_box( $box ) {
   );
 
   // Get all subsites and loop them
-  $sites = wp_get_sites();
+  $sites = wp_get_sites( array( 'public' => 1, 'deleted' => 0 ) );
+  
   $total_posts = array();
 
   if( count( $sites ) > 0 ) {
