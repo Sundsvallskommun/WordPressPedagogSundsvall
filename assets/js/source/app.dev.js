@@ -2,6 +2,14 @@
 	"use strict";
 	
 	$(function() {
+
+    // fix for z-index issue for iframe IE9
+    $('iframe').each(function(){
+        var url = $(this).attr("src");
+        $(this).attr("src",url+"&wmode=transparent");
+    });
+
+
     
     // disable sub-menu from header navigation
     $('header.sk-site li').each(function(n) {
