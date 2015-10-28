@@ -43,8 +43,6 @@ $sk_site_info = new SKChildTheme\Sk_Site_Info();
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
     wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/assets/css/style.css' );
-    
-    //wp_enqueue_script( 'child-js', get_stylesheet_directory_uri() . '/assets/js/app.js', array('jquery', 'jquery-ui-datepicker' ), false, true );
 }
 
 
@@ -61,7 +59,7 @@ function theme_enqueue_styles() {
  */
 function archive_posts( $query ) {
 
-  if ( is_admin() || ! $query->is_main_query() || $query->query['post_type'] == 'tribe_events' )
+  if ( is_admin() || ! $query->is_main_query() || isset( $query->query['post_type'] ) && $query->query['post_type'] == 'tribe_events' )
   	return;
 
   if ( $query->is_archive() ) {

@@ -418,7 +418,7 @@ class SK_Global_Categories {
       $args = array(
         'labels' => $labels,
         'hierarchical' => true,
-        'query_var' => 'true',
+        'query_var' => false,
         'rewrite' => array('slug' => 'sitewide-cats'),
         'show_admin_column' => 'true',
         'capabilities' => array(

@@ -8,7 +8,7 @@
  */
 class SK_Walker_Top_Menu extends Walker_Nav_Menu {
 
-  public function start_el( &$output, $item, $depth = 0, $args = array(), $current_object_id = 0 ) {
+  public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
     global $wp_query;
     $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
@@ -63,7 +63,8 @@ class SK_Walker_Top_Menu extends Walker_Nav_Menu {
    * Adding css class on <ul> tag for a new level.
    * 
    */
-  public function start_lvl( &$output, $depth ) {
+  public function start_lvl( &$output, $depth = 0, $args = array() ) {
+  //public function start_lvl( &$output, $depth ) {
     $indent = str_repeat( "\t", $depth );
     $output .= "\n$indent<ul class=\"sub-menu\">\n";
   }

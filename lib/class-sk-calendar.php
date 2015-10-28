@@ -256,7 +256,7 @@
     $i_date_from = mktime( 1, 0, 0, substr( $date_from, 5, 2 ), substr( $date_from, 8, 2 ), substr( $date_from, 0, 4 ) );
     $i_date_to = mktime( 1, 0, 0, substr( $date_to, 5, 2 ), substr( $date_to, 8, 2 ), substr( $date_to, 0, 4 ) );
 
-    if( $i_date_to >= $i_date_fro ){
+    if( $i_date_to >= $i_date_from ){
         array_push( $range, date( 'Y-m-d', $i_date_from ) ); // first entry
         while ( $i_date_from < $i_date_to ){
             $i_date_from += 86400; // add 24 hours

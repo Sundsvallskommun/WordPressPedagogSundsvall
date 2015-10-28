@@ -55,7 +55,7 @@ function get_article_categories_for_panel( $post_id, $site_id ){
 	$terms = wp_get_post_terms( $post_id, 'sitewidecats', array( "fields" => "all" ) );
 	restore_current_blog();
 	// check if theres some categories to hide
-	//$hide_category = get_option( 'sk_hide_global_categories' );
+	$hide_category = get_option( 'sk_hide_global_categories' );
 	if(!empty( $hide_category )){
 		foreach ($terms as $key => $term ) {
 			// remove terms from array
@@ -108,8 +108,7 @@ function get_article_panel_by_global_category( $categories = array(), $panel_tit
 
 	$categories = $term_children;
 
-
-
+	$hide_category = get_option( 'sk_hide_global_categories' );
 	$current_permalink = get_permalink( $post->ID );
 	if( $only_subsites == '1' ){
 		$terms = wp_get_post_terms($post->ID, 'sitewidecats', array('fields' => 'all'));
@@ -200,7 +199,7 @@ function get_article_panel_by_global_category( $categories = array(), $panel_tit
 
 function get_calendar_panel_by_global_category( $categories = array(), $panel_title ){
 	global $post, $wpdb;
-
+	$hide_category = get_option( 'sk_hide_global_categories' );
 
 		$terms = wp_get_post_terms($post->ID, 'sitewidecats', array('fields' => 'all'));
 		if(!empty( $terms )){
@@ -218,6 +217,7 @@ function get_calendar_panel_by_global_category( $categories = array(), $panel_ti
 		}
 
 
+	$posts = array();
 	if(!empty( $categories )){
 		$args = array(
 		'post_type' => 'tribe_events',

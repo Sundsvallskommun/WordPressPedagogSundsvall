@@ -13,7 +13,7 @@
 
   <div class="sk-blog-tags sk-sidebar-panel-row">
     <h4><?php _e( 'Etiketter', 'sk') ?></h4>
-  	<?php wp_tag_cloud( $args ); ?>
+  	<?php wp_tag_cloud(); ?>
   </div>
   
   <div class="sk-blog-archive sk-sidebar-panel-row">

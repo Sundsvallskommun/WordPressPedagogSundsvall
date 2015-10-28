@@ -58,7 +58,7 @@ class SK_Sitemap {
 
 		<?php foreach( $child_posts as $child_post ) : ?>
 			<li class="child"><a href="<?php echo $child_post->post_permalink; ?>"><?php echo $child_post->post_title; ?></a></li>
-		<?php endforeach;M ?>
+		<?php endforeach; ?>
 
 	<?php endif; ?>
 
