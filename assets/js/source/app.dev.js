@@ -10,37 +10,40 @@
     });
 
 
+    // check if dropdown-nav is activated
+    if( $('body.sk-dropdown-nav').length > 0 ){
     
-    // disable sub-menu from header navigation
-    $('header.sk-site li').each(function(n) {
-      $(this).find('ul').addClass('disable-sub-menu');
-    });
-
-    // remove class disable sub menu on mobile nav activation
-    $( '.of-menu-toggle' ).on('click', function(){
+      // disable sub-menu from header navigation
       $('header.sk-site li').each(function(n) {
-        $(this).find('ul').removeClass('disable-sub-menu');
+        $(this).find('ul').addClass('disable-sub-menu');
       });
-    });
 
-    $( 'header.sk-site .of-sidebar-menu-advanced .of-has-children' ).hover(
-      function() {
-        if( $('.of-sidebar-menu-advanced-active').length > 0 ){
-          return false;          
-        }
+      // remove class disable sub menu on mobile nav activation
+      $('.of-menu-toggle').on('click', function(){
+        $('header.sk-site li').each(function(n) {
+          $(this).find('ul').removeClass('disable-sub-menu');
+        });
+      });
+
+      $( 'header.sk-site .of-sidebar-menu-advanced .of-has-children' ).hover(
+        function() {
+          if( $('.of-sidebar-menu-advanced-active').length > 0 )
+            return false;          
+            
+            $( this ).find('.sub-menu').removeClass('disable-sub-menu');
+            $( this ).find('.sub-menu').show();
           
-        $( this ).find('.sub-menu').removeClass('disable-sub-menu');
-        $( this ).find('.sub-menu').show();
-        
-        }, function(e) {
-        if( $('.of-sidebar-menu-advanced-active').length > 0 )
-          return false;
+          }, function(e) {
+
+          if( $('.of-sidebar-menu-advanced-active').length > 0 )
+            return false;
 
           e.preventDefault();        
-         $( this ).find('.sub-menu').hide();
-      }
-    );
-
+          $( this ).find('.sub-menu').hide();
+        }
+      );
+    }
+    
     // Check for placeholder support
     $.support.placeholder = ('placeholder' in document.createElement('input'));
 

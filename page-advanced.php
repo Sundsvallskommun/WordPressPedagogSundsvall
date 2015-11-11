@@ -73,7 +73,7 @@ $menu = get_advanced_template_menu();
 
             <?php elseif ( get_row_layout() == 'faq_block' ) : ?>
               
-              <?php SKChildTheme\the_faq_block(); ?>
+              <?php the_faq_block(); ?>
 
             <?php endif; ?>
 
