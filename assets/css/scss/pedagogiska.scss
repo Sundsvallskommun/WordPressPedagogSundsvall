@@ -3,82 +3,7 @@
 
 header .top-banner{
   height: 130px;
-
 }
-
-header.sk-site .of-sidebar-menu-advanced ul ul {
-  /*
-    display: block !important;
-    opacity: 0;
-    */
-}
-
-header.sk-site .of-sidebar-menu-advanced ul ul.sub-menu-drop-down {
-}
-
-// clear overflows to allow position absolute to expand on header.
-.of-sidebar-menu-advanced .of-sidebar-inner{
-  overflow: inherit;
-}
-
-header.sk-site .of-sidebar-menu-advanced {
-  z-index: 1001;
-  overflow: inherit;
-}
-
-// chrome 
-
-header.sk-site .of-sidebar-menu-advanced ul li a, 
-header.sk-site .of-sidebar-menu-advanced ul li.of-active-ancestor a, 
-header.sk-site .of-sidebar-menu-advanced ul li.of-active a {
-  padding: 17px;
-  border-bottom: 1px solid;
-  border-color: transparent;
-}
-
-  header.sk-site .of-sidebar-menu-advanced ul li, 
-  header.sk-site .of-sidebar-menu-advanced ul li.of-active-ancestor, 
-  header.sk-site .of-sidebar-menu-advanced ul li.of-active{}
-/*
-body{
-  &:not(.of-sidebar-menu-advanced-active) {
-    header.sk-site .of-sidebar-menu-advanced ul li ul li.menu-item-has-children ul.sub-menu{
-      display: none !important;
-    }
-  }
-}
-*/
-
-/* of-screen-max-md */
-@media (min-width: 52em) {
-
-    header.sk-site .of-sidebar-menu-advanced ul li ul li.menu-item-has-children ul.sub-menu{
-      display: none !important;
-    }
-
-}
-
-
-
-.of-sidebar-menu-advanced-active{
-  header.sk-site .of-sidebar-menu-advanced .of-sidebar-inner > ul > li.of-active-ascendant > a {
-    color: inherit;
-  }
-
-  header.sk-site .of-sidebar-menu-advanced .of-sidebar-inner > ul > li.of-active-ascendant > a {
-    background-color: inherit;
-  }
-
-}
-
-ul ul.disable-sub-menu {
-  display: none !important; // !important needed because the javascript automatically opens up active elements.
-}
-
-.of-has-children a span.icon-expand{
-      display: none;
-
-  }
 
 p.of-paragraph-ingress {
     font-size: 1em;
@@ -107,27 +32,18 @@ h1.sk-site-title{
 }
 
 
-
-/*
-.sk-theme-svartvik header.sk-site .of-sidebar-menu-advanced ul li.of-active-ancestor a, 
-.sk-theme-svartvik header.sk-site .of-sidebar-menu-advanced ul li.of-active a {
-    background-color: #505D62;
-}
-*/
-
 h1.sk-site-title a{
   margin: 20px 0;
   padding: 10px;
-  //background-color: rgba(255, 255, 255, 0.85);
 }
 
 
 @media (min-width: 52em) {
 
-   .sk-boxes > li.sk-box-width-2 {
+  .sk-boxes > li.sk-box-width-2 {
     width: 49%;
     width: calc(50% - 1.125em - .1px);
-}
+  }
 
 
   .sk-boxes>li.sk-box-width-2:nth-child(2n+1) {
@@ -232,12 +148,9 @@ h1.sk-site-title a{
 
 }
 
-
-
 /**
  * SK articles
  */
-
 .sk-article-panel-wrapper{
   h5{
     margin: 15px 0;
@@ -251,8 +164,6 @@ h1.sk-site-title a{
   margin-bottom: 15px;
   padding: 10px 0;
 
-
-
   ul{
     line-height: 1.2;
   }
@@ -260,7 +171,6 @@ h1.sk-site-title a{
   .sk-article-panel-title{
     padding: 0px 15px;
     font-size: 17px;
-    //background: $gronsta3;
     color: #485258;
   }
 
@@ -290,12 +200,9 @@ h1.sk-site-title a{
   padding: 10px 0;
   @include border-radius(0px);
   font-size: 14px;
-
- p{
-  
-  }
 }
 .sk-sidebar-panel-wrapper{
+
   h5{
     margin: 15px 0;
     padding-left: 3px;
@@ -331,7 +238,6 @@ h1.sk-site-title a{
 
 .sk-article-terms{
   padding-top: 15px;
-  //border-top: 1px rgba(182, 192, 198, 0.2) solid;
 }
 
 
@@ -377,23 +283,6 @@ ul.of-breadcrumbs > li span {
 }
 ul.of-breadcrumbs > li:first-child a {
   padding-left: 0;
-}
-
-
-
-/* of-screen-max-md */
-@media (max-width: 52em) {
-
-  .of-has-children a .glyphicon {
-      display: none;
-  }
-
-
-  .of-sidebar-menu-advanced .of-sidebar-inner {
-    overflow: auto;
-  }
-
-
 }
 
 
