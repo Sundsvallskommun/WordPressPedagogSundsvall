@@ -31,7 +31,28 @@
 		public function __construct() {
 			add_action( 'sk_default_box_types', array( $this, 'default_box_types' ) );
 			add_filter( 'sk_default_option_sub_pages', array( $this, 'sub_option_pages' ) ); 
-			
+			add_action( 'init', array( $this, 'unregister_post_type' ),100 );
+		}
+
+		/**
+		 * Remove post types from blog sites
+		 * 
+		 * @return none 
+		 */
+		public function unregister_post_type() {
+			global $wp_post_types;
+
+			if(is_main_site())
+				return false;
+
+			$remove_post_types = array( 'faq', 'boxes' );
+
+			foreach ($remove_post_types as $pt  ) {
+				if ( isset( $wp_post_types[ $pt ] ) ) {
+	      	unset( $wp_post_types[ $pt ] );
+				}
+    	}
+    
 		}
 
 		/**
@@ -68,7 +89,8 @@
 						case 'Sidfot':
 							unset( $option_sub_pages[$key]);
 						break;				
-					}
+					}       	
+
 
 				}
 				
