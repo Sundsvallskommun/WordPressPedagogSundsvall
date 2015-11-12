@@ -21,8 +21,8 @@ module.exports = function(grunt) {
                         '../sk-theme/assets/js/lib/owl.carousel.min.js',
                         '../sk-theme/assets/js/lib/waypoints.js',
                         '../sk-theme/assets/js/source/faq.js',
-                        //'../sk-theme/assets/of/of-assets/js/of-master.js',
-                        'assets/of/of-assets/js/of-master.js',
+                        '../sk-theme/assets/of/of-assets/js/of-master.js',
+                        //'assets/of/of-assets/js/of-master.js',
                         '../sk-theme/assets/of/components/of-sidebar-menu-advanced/of-sidebar-menu-advanced.min.js',
                         '../sk-theme/assets/js/source/app.dev.js',
                         'assets/js/source/app.dev.js'
