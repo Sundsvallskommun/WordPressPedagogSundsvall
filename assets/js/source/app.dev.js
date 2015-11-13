@@ -9,6 +9,5 @@
         $(this).attr("src",url+"&wmode=transparent");
     });
    
-
 	});
 }(jQuery));
