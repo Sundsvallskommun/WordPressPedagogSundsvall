@@ -2147,6 +2147,12 @@ ul.of-breadcrumbs > li:first-child a {
       flex: 2;
 }
 
+/* Subsites override 
+ ----------------------------------------------------------------------------------------*/
+.subsite .sk-main-padded {
+  margin-top: 0;
+}
+
 .sk-boxes.flexbox {
   display: -webkit-flex;
   display: -ms-flexbox;
