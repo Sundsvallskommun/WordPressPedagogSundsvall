@@ -147,6 +147,13 @@ h1.sk-site-title a{
 
 }
 
+@media (max-width: 70em) {
+  .list-blogs .sk-grid-list > li:last-child:nth-child(odd) {
+    display: block;
+  }
+}
+
+
 /**
  * SK articles
  */
@@ -362,6 +369,7 @@ ul.of-breadcrumbs > li:first-child a {
     -webkit-flex: 2;
     flex: 2;
 }
+
 
 
 
