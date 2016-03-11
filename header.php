@@ -25,6 +25,10 @@
 	</head>
 	
 	<body <?php body_class( array( sk_get_site_color(), 'sk-dropdown-nav' ) ); ?>>
+		<?php if (file_exists($_SERVER["DOCUMENT_ROOT"] . "analyticstracking.php")) {
+			include_once($_SERVER["DOCUMENT_ROOT"] . "analyticstracking.php");
+			}
+		?>
 
 		<!--[if lt IE 9]>
 			<div class="outdated-browser">
