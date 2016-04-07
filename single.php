@@ -1,9 +1,7 @@
 <?php get_header(); ?>
 
 <div class="of-wrap">
-  <!--<div class="sk-main-padded of-inner-padded-t of-clear">-->
-   <div class="sk-main of-inner of-clear">
-
+   <div class="sk-main-padded of-inner of-clear">
     <div class="of-c-sm-4 of-c-md-3">
       <?php while ( have_posts() ) : the_post(); ?>
         <?php edit_post_link( __( 'Redigera den här sidan', 'sk' ), '<p>', '</p>' ); ?>

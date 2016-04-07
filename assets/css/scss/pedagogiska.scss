@@ -37,7 +37,6 @@ h1.sk-site-title a{
   padding: 10px;
 }
 
-
 @media (min-width: 52em) {
 
   .sk-boxes > li.sk-box-width-2 {
@@ -147,6 +146,13 @@ h1.sk-site-title a{
   max-height: 100%;
 
 }
+
+@media (max-width: 70em) {
+  .list-blogs .sk-grid-list > li:last-child:nth-child(odd) {
+    display: block;
+  }
+}
+
 
 /**
  * SK articles
@@ -364,3 +370,11 @@ ul.of-breadcrumbs > li:first-child a {
     flex: 2;
 }
 
+
+
+
+/* Subsites override 
+ ----------------------------------------------------------------------------------------*/
+.subsite .sk-main-padded{
+  margin-top: 0;
+}

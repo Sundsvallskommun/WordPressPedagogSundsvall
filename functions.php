@@ -81,8 +81,12 @@ add_action( 'pre_get_posts', 'archive_posts', 1 );
  * 
  */
 function single_reportage( $template ){
-	if( is_main_site() )
+	$post_type = get_post_type();
+
+	// only for main site and post type post
+	if( is_main_site() && $post_type == 'post' ){
 		return get_stylesheet_directory() . "/single-reportage.php";
+	}
 	
 	return $template;
 } 

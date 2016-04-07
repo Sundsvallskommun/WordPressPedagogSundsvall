@@ -576,7 +576,7 @@
                                     "class": "",
                                     "id": ""
                                 },
-                                "taxonomy": "category",
+                                "taxonomy": "faqkategorier",
                                 "field_type": "multi_select",
                                 "allow_null": 0,
                                 "load_save_terms": 0,

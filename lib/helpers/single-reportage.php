@@ -23,7 +23,7 @@ function get_article_panels(){
 	<h5><?php _e('Relaterade inlägg', 'sk'); ?></h5>
 	<?php
 
-	get_article_panel_by_global_category( $parent_category = array( 'organisationsniva' ), $panel_title = __( 'Verksamhet', 'sk' ), $offset = '-1' );
+	get_article_panel_by_global_category( $parent_category = array( 'verksamhet' ), $panel_title = __( 'Verksamhet', 'sk' ), $offset = '-1' );
 	get_article_panel_by_global_category( $parent_category = array( 'pedagogik', 'amne' ), $panel_title = __( 'Ämne & pedagogik', 'sk' ), $offset = '-1' );
 	get_article_panel_by_global_category( $parent_category = array(), $panel_title = __( 'Bloggar', 'sk' ), $offset = 1, $only_subsites = '1' );
 	get_calendar_panel_by_global_category( $parent_category = array(), $panel_title = __( 'Kalender', 'sk' ), $offset = 1, $only_subsites = '1' );
@@ -84,29 +84,48 @@ function get_article_panel_by_global_category( $categories = array(), $panel_tit
 	$taxonomy = 'sitewidecats';
 	
 	// get post terms in taxonomy sitewidecats
+	$term = term_exists('Uncategorized', 'category');
+if ($term !== 0 && $term !== null) {
+  echo "'Uncategorized' category exists!";
+}
 	
 	// get the term object for parent term
+	$notice = '';
 	$parent_terms = array();
 	foreach ( $categories as $category ) {
-		$term = get_term_by( 'slug', $category, $taxonomy );
-		$parent_terms[] = $term;
-	}
-	
+		$is_term = term_exists( $category, $taxonomy );
+		if($is_term !== 0 && $is_term !== null) {
+			$term = get_term_by( 'slug', $category, $taxonomy );
+			$parent_terms[] = $term;	
+		}else{
 
+			printf(__('<div style="font-size: 11px; font-style:italic; margin-bottom: 10px;">Felmeddelande: Kategorislug %s existerar inte</div>'), $category );
+			return false;
+	
+		}
+		
+		
+	}
 	// retrieve terms in post within parent term
+		
 	$term_children = array();
-	if(!empty( $parent_term )){
+	if(!empty( $parent_terms )){
 		foreach ($parent_terms as $parent_term) {
+			
 			$terms = get_the_terms( $post->ID, $taxonomy );
 			if(! empty( $terms )){
 				foreach ( $terms as $term ){
+					//\util::debug( $term, $parent_term );
 					if( $term->parent == $parent_term->term_id ) { //EDIT - Put the right ID here.
 						$term_children[] = $term->slug;
 					}
 				}
 			}
+	
 		}
 	}
+
+
 
 	$categories = $term_children;
 
@@ -128,6 +147,7 @@ function get_article_panel_by_global_category( $categories = array(), $panel_tit
 
 		}
 	}
+
 
 // show only main site
 
