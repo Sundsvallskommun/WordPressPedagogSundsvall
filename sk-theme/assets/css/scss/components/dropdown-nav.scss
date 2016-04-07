@@ -1,0 +1,109 @@
+@charset "utf-8";
+@media (min-width: 52em) {
+
+    
+.of-sidebar-menu-advanced-active .of-sidebar-menu-advanced .sub-menu{
+  &:not(.sk-dropdown-nav) {
+    display: none;
+  } 
+}
+
+
+.sk-dropdown-nav header.sk-site .of-sidebar-menu-advanced {
+    overflow: inherit;
+
+    .of-sidebar-inner {
+      overflow: inherit;
+    }
+
+    .menu-item-has-children .of-icon{
+      padding-left: 10px;
+    }
+
+    // disable second sub menu level
+    ul li ul li.menu-item-has-children ul.sub-menu{
+      display: none !important;
+    }
+
+    .of-has-children a span.icon-expand{
+      display: inline-block;
+      height: 1em;
+      width: 1em;
+      margin-left: 10px;
+    }
+
+    ul.sub-menu{
+      position: absolute;
+      left: 0;
+      padding: 0;
+      z-index: 9999;
+      display: none;
+      -webkit-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.1);
+      -moz-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.1);
+      box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.1);
+      border: 1px solid #e7e7e7;
+
+      li{
+        width: 200px;
+        display: block;      
+        border-radius: 0;
+      }
+
+      li.menu-item-has-children > a{
+        font-weight: bold;
+      }
+
+      li a{
+        background-color: #ffffff !important;
+        color: #424242;
+        display: block;
+        margin: 0;
+        padding: 10px;
+        border-bottom: 1px solid #e7e7e7;
+      }
+
+      ul{
+        border: none;
+        position: inherit;
+        display: block !important;
+
+      }
+      
+      ul li a{
+        padding-left: 15px;
+      }    
+
+      ul li ul li a{
+        padding-left: 30px;
+      }
+
+      ul li ul li ul li a {
+        padding-left: 40px;
+      }
+      
+      .dropdown-icon, .of-expand,  {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 52em) {
+  .sk-dropdown-nav{
+    .of-has-children a .dropdown-icon {
+      display: none !important;
+    }
+
+    .of-sidebar-menu-advanced .of-sidebar-inner {
+      overflow: auto;
+    }
+  }
+}
+
+// kolla om denna fungerar i grundtemat.
+.sk-dropdown-nav{
+header.sk-site .of-sidebar-menu-advanced .of-sidebar-inner > ul > li.of-active-ascendant > a {
+    //color: #424242 !important;
+    //font-weight: 600;
+}
+}

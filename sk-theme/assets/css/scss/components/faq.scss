@@ -1,0 +1,158 @@
+@charset "utf-8";
+.sk-faq-list{
+  padding-top: 1em;
+}
+.sk-faq-list h5{
+  text-decoration: none;
+  font-weight:bold;
+  padding-bottom: .5em;
+}
+
+.sk-faq-list li
+{
+  list-style:none;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.sk-faq-list .of-icon>i svg{
+  margin-top:2px;
+}
+.of-table.box-qa-answers{
+    padding: 1em 1em;
+    margin-top: 5px;
+    padding-bottom: 0px;
+}
+.of-table.box-qa-answers p{
+    margin: 0;
+}
+
+.faq-filter-search .of-block-label{
+
+}
+.faq-answer{
+  margin-bottom: 1em;
+}
+.faq-question{
+  cursor: pointer;
+}
+.faq-item{
+  margin-bottom: 1em;
+}
+.faq-question h5 i.arrow{
+  float: right;
+}
+.faq-related{
+  border-top: 1px solid #ccc;
+  padding-top: .5em;
+  margin-top: .5em;
+  font-size: 14px;
+  margin-bottom: 2em;
+  position:relative;
+}
+ .reference-link{
+  border-right: 1px solid #ccc;
+  padding-right: .5em;
+  padding-left: .5em;
+}
+.reference-link:last-child{
+  border-right: 0px solid #ccc;
+  
+}
+.faq-open-link{
+  position: absolute;
+  right: 0;
+  top: 7px;
+}
+
+.faq-post-terms{
+    margin: .5em 0 .2em 0;
+}
+
+
+
+.of-checkbox-list ul{
+  list-style: none;
+}
+
+.of-checkbox-list ul li{
+  margin: 0;
+}
+
+.sk-faq-posts-block ul{
+  list-style: none;
+}
+.sk-faq-posts-block ul li{
+  list-style: none;
+  margin: 0;
+
+}
+.faq-filter-search{
+  position: relative;
+}
+
+.faq-filter-search > li.faq-filter{
+  width: 70%;
+  width: calc(70% - 1.125em - .1px);
+}
+
+.faq-filter-search > li {
+  position: relative;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 0 0 1.5em 0;
+  vertical-align: top;
+}
+
+.faq-filter .box-filter-search{
+  margin-bottom: 10px;
+}
+
+fieldset.of-checkbox-list{
+  margin-top: .5em;
+ 
+}
+
+.faq-filter-checkbox .btn{
+  width: 100%;
+}
+.single-faq-bottom{
+  border-top: 1px solid #ccc;
+  padding-top: .5em;
+  font-size: 14px;
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+.single-faq-bottom span{
+  margin-top: .5em;
+  margin-right: .5em;
+}
+.social-sharing { 
+  display: block;
+  float: right;
+}
+.social-sharing p{
+ margin-bottom: 0;
+ float: left;
+ margin-right: .5em;
+ margin-top: .3em !important;
+
+}
+.social-sharing i{
+    margin-right: 10px;
+    width: 2em;
+    height: 2em;
+
+}
+@media (max-width: 800px) {
+
+.faq-filter-search > li.faq-filter{
+  width: 100%;
+  width: calc(100% - 1.125em - .1px);
+}
+
+}
+
+/* 
+ *  FAQ end
+ */
