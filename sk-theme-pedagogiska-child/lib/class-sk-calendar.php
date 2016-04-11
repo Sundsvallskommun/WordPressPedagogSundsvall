@@ -56,7 +56,7 @@
                      
                     $content.='</ul>';
         
-                    $content .= '<div class="link-to-calendar"><a href="' . get_bloginfo('url') . '/' . Tribe__Events__Main::instance()->getOption( 'eventsSlug', 'events' ) . '/">' . __('Öppna kalender', 'sk') . '</a></div>';                  
+                    $content .= '<div class="link-to-calendar"><a href="' . get_bloginfo('url') . '/' . Tribe__Settings_Manager::instance()->get_option( 'eventsSlug', 'events' ) . '/">' . __('Öppna kalender', 'sk') . '</a></div>';                  
                     $content.='<div class="clear"></div>';     
        
                   $content.='</div>';
@@ -88,7 +88,7 @@
             $cell_content = $this->current_day;
 
             if( in_array( $this->current_day, $this->occupied_days ) ) {
-            	$cell_content = '<a href="'. get_bloginfo( 'url' ) . '/' . Tribe__Events__Main::instance()->getOption( 'eventsSlug', 'events' ) . '/' . $this->current_date . '/">' . $cell_content . '</a>';
+            	$cell_content = '<a href="'. get_bloginfo( 'url' ) . '/' . Tribe__Settings_Manager::instance()->get_option( 'eventsSlug', 'events' ) . '/' . $this->current_date . '/">' . $cell_content . '</a>';
               $lastest_day = $this->current_day;
             } 
             $this->current_day++;   
@@ -116,7 +116,7 @@
          
         return
             '<div class="header">'.
-                '<a href="' . get_bloginfo('url') . '/' . Tribe__Events__Main::instance()->getOption( 'eventsSlug', 'events' ) . '/"><span class="title">'.ucfirst( date_i18n('F Y', strtotime( $this->current_year . '-' . $this->current_month . '-1' ) ) ) . '</span></a>'.
+                '<a href="' . get_bloginfo('url') . '/' . Tribe__Settings_Manager::instance()->get_option( 'eventsSlug', 'events' ) . '/"><span class="title">'.ucfirst( date_i18n('F Y', strtotime( $this->current_year . '-' . $this->current_month . '-1' ) ) ) . '</span></a>'.
             '</div>';
     }
 
