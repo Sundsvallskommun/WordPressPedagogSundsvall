@@ -8,6 +8,7 @@ require_once( locate_template( '/lib/util.php' ) );
 |  LOAD AND INIT ALL SITE REQUIREMENTS |
  -------------------------------------- */
 
+require_once locate_template( '/lib/class-sk-custom-capabilities.php' );
 
 // Load parent themes template helpers
 require_once( get_template_directory() . '/lib/helpers/advanced-template.php' );
