@@ -115,7 +115,8 @@ class SK_Custom_Capabilities {
 	 */
 	public function remove_admin_menu_items(){
 
-		if( current_user_can( 'manage_sites' ) && !is_super_admin() ){
+		if( ! current_user_can( 'manage_network_plugins' ) ){
+			remove_submenu_page( 'options-general.php', 'sso_general.php' );
 			remove_menu_page( 'edit.php?post_type=acf-field-group' );
 		}
 	}

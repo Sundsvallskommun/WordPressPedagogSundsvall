@@ -44,7 +44,7 @@ class SK_Global_Categories {
     }
 
     // Add a global categories setting to admin menu for admins
-    if( is_admin() && current_user_can( 'manage_plugins' ) ) {
+    if( is_admin() && current_user_can( 'manage_options' ) ) {
       add_action( 'admin_menu', array( $this, 'add_global_term_options' ) );
     }
 
