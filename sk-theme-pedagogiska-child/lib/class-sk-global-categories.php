@@ -16,6 +16,7 @@ namespace SKChildTheme;
 
 class SK_Global_Categories {
 	
+  private $options;
 
   /**
    * Constructor function.
@@ -46,6 +47,7 @@ class SK_Global_Categories {
     // Add a global categories setting to admin menu for admins
     if( is_admin() && current_user_can( 'manage_options' ) ) {
       add_action( 'admin_menu', array( $this, 'add_global_term_options' ) );
+      add_action( 'admin_init', array( $this, 'page_init' ) );
     }
 
     // Edit the admin menu
@@ -97,17 +99,185 @@ class SK_Global_Categories {
    * @since  1.0.0
    */
   public function add_global_term_options() {
-
     add_options_page( __( 'Inställningar för Globala kategorier', 'sk' ), __( 'Globala kategorier', 'sk' ), 'manage_options', 'functions', array( $this, 'global_term_options') );
+  }
+    
+  /**
+   * Register and add settings
+   * 
+   * @author Daniel Söderström <daniel.soderstrom@cybercom.com>
+   * 
+   * @return [type]
+   */
+  public function page_init(){
+
+    register_setting(
+      'global_categories_group', // Option group
+      'sk_use_global_categories', // Option name
+      array( $this, 'update' ) // Sanitize data before save
+    );
+
+    register_setting(
+      'global_categories_group', // Option group
+      'sk_hide_global_categories', // Option name
+      array( $this, 'update_hide_categories' ) // Sanitize before save
+    );        
+
+    add_settings_section(
+      'top_section', // ID
+      false, // Title
+      false, // Callback
+      'functions' // Page
+    );  
+
+    add_settings_field(
+      'use', // ID
+      __('Aktivera globala kategorier', 'sk'), // Title 
+      array( $this, 'activate' ), // Callback
+      'functions', // Page
+      'top_section' // Section           
+    );                
+
+    add_settings_field(
+      'post_types', // ID
+      __('Välj posttyper', 'sk'), // Title 
+      array( $this, 'post_types' ), // Callback
+      'functions', // Page
+      'top_section' // Section           
+    );                
+
+    add_settings_field(
+      'hide_categories', // ID
+      __('Dölj en föräldrakategori och alla dess underkategorier från reportage', 'sk'), // Title 
+      array( $this, 'hide_categories' ), // Callback
+      'functions', // Page
+      'top_section' // Section           
+    );   
+ 
+  }
+
+    
+  /**
+   * Grabbing new data before saving to options as serialized data.
+   * Possible to sanitize data in this method.
+   * 
+   * @author Daniel Söderström <daniel.soderstrom@cybercom.com>
+   * 
+   * @param  array $input
+   * 
+   * @return array
+   */
+  public function update( $input ){
+
+    $new_input = array();
+    if( isset( $input['use'] ) )
+      $new_input['use'] = $input['use'];
+
+    if( isset( $input['post_types'] ) )
+      $new_input['post_types'] = $input['post_types'];
+
+    return $new_input;
+  }
+
+  
+  /**
+   * Grabbing new data before saving to options as a single value.
+   * Possible to sanitize data in this method.
+   * 
+   * @author Daniel Söderström <daniel.soderstrom@cybercom.com>
+   * 
+   * @param  string $input
+   * 
+   * @return string
+   */
+  public function update_hide_categories( $input ){
+
+
+  if( isset( $input ) && !empty( $input ) ){
+  //  \util::debug( $input );
+  $option['sk_hide_global_categories'] = absint( $input );
+  return $option['sk_hide_global_categories'];
+  }
+
+  return false;
 
   }
 
+  /**
+  * Setting fields for activate.
+  * 
+  * @author Daniel Söderström <daniel.soderstrom@cybercom.com>
+  * 
+  * @return echo
+  */
+  public function activate(){
+    $use_global_categories = isset( $this->options['use'] ) ? 'on' : 'off';
+
+  ?>
+    <label for="use">
+      <input type="checkbox" id="use" name="sk_use_global_categories[use]" <?php checked( $use_global_categories, 'on', true ); ?>> <?php _e('Aktivera', 'sk'); ?>
+    </label>
+    <p class="description"><?php _e( 'Aktivera om globala kategorier skall vara valbara på denna subsite', 'sk' ); ?></p>
+    <?php
+  }    
 
   /**
-   * The output callback for the options page
+  * Setting fields for hide categories.
+  * 
+  * @author Daniel Söderström <daniel.soderstrom@cybercom.com>
+  * 
+  * @return echo
+  */
+  public function hide_categories(){
+    $hide_categories = get_option('sk_hide_global_categories');
+    $terms = get_terms( 'sitewidecats', array( 'hide_empty' => false, 'parent' => 0 ) );
+  ?>
+    <select name="sk_hide_global_categories">
+      <option value=""><?php _e( 'Visa alla kategorier', 'sk' ); ?></option>
+      <?php if(!empty( $terms ) && !is_wp_error( $terms ) ) : ?>
+        <?php foreach ($terms as $term) : ?>
+        <option value="<?php echo $term->term_id; ?>" <?php selected( $term->term_id, $hide_categories, true ); ?>><?php echo $term->name; ?></option>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </select>
+    <p class="description"><?php _e( 'Välj en förälderkategori att dölja. Observera att innan funktionen kan användas behöver du välja minst en posttyp ovan.', 'sk' ); ?></p>
+  <?php  
+  }        
+
+
+  /**
+  * Setting fields for hide post types.
+  * 
+  * @author Daniel Söderström <daniel.soderstrom@cybercom.com>
+  * 
+  * @return echo
+  */
+  public function post_types(){
+    $post_types = get_post_types();
+    $checked_post_types = isset( $this->options['post_types'] ) ? $this->options['post_types'] : array();
+
+    if( count( $post_types ) ) : ?>
+      <fieldset>
+        <?php foreach( $post_types as $post_type ) : ?>
+        <?php $checked = in_array( $post_type, array_keys( $checked_post_types ) ) ? ' checked ' : ''; ?>
+
+        <label for="<?php echo $post_type; ?>">
+          <input type="checkbox" id="<?php echo $post_type; ?>" name="sk_use_global_categories[post_types][<?php echo $post_type; ?>]" <?php echo $checked; ?>> <?php echo $post_type; ?>
+        </label><br>
+        <?php endforeach; ?>
+        <p class="description"><?php _e( 'Markera de posttyper som globala kategorier skall finnas tillgängliga på.', 'sk' ); ?> </p>
+      </fieldset>
+    <?php endif; ?>
+  <?php  
+  }        
+
+
+  /**
+   * Output callback for the options page
    * 
-   * @since 1.0.0
+   * @author Daniel Söderström <daniel.soderstrom@cybercom.com>
    * 
+   * @return echo
    */
   public function global_term_options() {
 
@@ -116,86 +286,22 @@ class SK_Global_Categories {
 
     $use_global_categories = isset( $options['use'] ) ? 'on' : 'off';
     $checked_post_types = isset( $options['post_types'] ) ? $options['post_types'] : array();
-    ?>
-
-    <div class="wrap">
-        <h2><?php _e( 'Inställningar för Globala kategorier', 'sk' ); ?></h2>
-        <form method="post" action="options.php">
-          <?php wp_nonce_field('update-options') ?>
-
-          <table class="form-table">
-            <tbody>
-            <tr class="option-global-categories">
-              <th><?php _e('Använd globala kategorier', 'sk'); ?></th>
-              <td>
-                <fieldset>
-                  <legend class="screen-reader-text"><?php _e('Använd globala kategorier', 'sk'); ?></legend>
-                  <label for="sk_use_global_categories">
-                    <input type="checkbox" id="sk_use_global_categories" name="sk_use_global_categories[use]" <?php checked( $use_global_categories, 'on' ); ?> /> <?php _e('Aktivera', 'sk'); ?>
-                  </label>
-                  <p class="description"><?php _e('Aktivera om globala kategorier skall vara valbara på denna subsite'); ?></p>
-                </fieldset>
-              </td>
-            </tr>
-            <tr class="option-global-categories">
-              <th><label for="hide_global_categories"><?php _e('Dölj en föräldrakategori och alla dess underkategorier från reportage', 'sk'); ?></label></th>
-
-              <?php $terms = get_terms( 'sitewidecats', array( 'hide_empty' => false, 'parent' => 0 ) ); ?>
-              <td>
-                <fieldset>
-                  <legend class="screen-reader-text"><?php _e('Dölj en föräldrakategori och alla dess underkategorier från reportage', 'sk'); ?></legend>
-                  <select name="sk_hide_global_categories">
-                    <option value=""><?php _e( 'Visa alla kategorier', 'sk' ); ?></option>
-                  <?php foreach ($terms as $term) : ?>
-                    <option value="<?php echo $term->term_id; ?>" <?php selected( $term->term_id, get_option('sk_hide_global_categories'), true ); ?>><?php echo $term->name; ?></option>
-                  <?php endforeach; ?>
-                  </select>
-                  <p class="description"><?php _e( 'Välj en förälderkategori att dölja', 'sk' ); ?></p>
-                </fieldset>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-
-          <h3><?php _e( 'Posttyper', 'sk' ); ?></h5>
-          <table class="form-table">
-            <tbody>
-
-            <?php if( count( $post_types ) ) : ?>
-              <?php foreach( $post_types as $post_type ) : ?>
-                <?php 
-                $checked = in_array( $post_type, array_keys( $checked_post_types ) ) ? ' checked ' : '';
-                ?>
-                <tr class="option-global-categories-post-types">
-                  <th><?php echo $post_type; ?></th>
-                  <td>
-                    <fieldset>
-                      <legend class="screen-reader-text"><?php echo $post_type; ?></legend>
-                      <label for="">
-                        <input type="checkbox" id="sk_global_categories_post_types" name="sk_use_global_categories[post_types][<?php echo $post_type; ?>]" <?php echo $checked; ?> /> <?php _e('Aktivera', 'sk'); ?>
-                      </label>
-                    </fieldset>
-                  </td>
-                </tr>
-
-              <?php endforeach; ?>
-            <?php endif; ?>
-
-            </tbody>
-          </table>
-          <p class="description"><?php _e('Kryssa i de posttyper som globala kategorier skall finnas tillgängliga på'); ?></p>
-
-          <p><input type="submit" class="button button-primary" name="Submit" value="<?php _e('Spara'); ?>" /></p>
-          <input type="hidden" name="action" value="update" />
-          <input type="hidden" name="page_options" value="sk_use_global_categories" />
-        </form>
-      </div>
-    <?php
-
-  }
-
-
-
+  
+      $this->options = get_option( 'sk_use_global_categories' );
+        ?>
+        <div class="wrap">
+            <h2><?php _e( 'Inställningar för Globala kategorier', 'sk' ); ?></h2>           
+            <form method="post" action="options.php">
+            <?php
+                // This prints out all hidden setting fields
+                settings_fields( 'global_categories_group' );   
+                do_settings_sections( 'functions' );
+                submit_button(); 
+            ?>
+            </form>
+        </div>
+        <?php
+      }
 
 
   /*
