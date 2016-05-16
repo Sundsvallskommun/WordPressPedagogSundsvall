@@ -117,6 +117,7 @@
 								</em>
 							</a>
 							<form method="get" id="searchform" class="sk-search-form js-search-form of-hide-to-lg" action="<?php bloginfo( 'url' ); ?>/">
+								<?php sk_is_multisite_search(); ?>
 								<input type="text" size="18" value="<?php echo esc_html( $s ); ?>" name="s" id="s" placeholder="<?php _e('Sök', 'sk'); ?>" />
 							</form>
 						</div>

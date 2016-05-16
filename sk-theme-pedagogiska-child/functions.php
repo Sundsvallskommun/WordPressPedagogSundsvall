@@ -43,9 +43,42 @@ $sk_site_info = new SKChildTheme\Sk_Site_Info();
 
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
-    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/assets/css/style.css' );
+  wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/assets/css/style.css' );
 }
 
+
+/**
+ * Add searchable sites to search form if relevanssi is activated.
+ * 
+ * @author Daniel Söderström <daniel.soderstrom@cybercom.com>
+ * 
+ * @return string
+ */
+function sk_is_multisite_search(){
+  
+  if( function_exists('relevanssi_search_multi') ){
+    $args = array(
+      'public'     => true,
+      'archived'   => false,
+      'mature'     => false,
+      'spam'       => false,
+      'deleted'    => false
+    ); 
+
+    $sites = wp_get_sites( $args );
+
+    $search_in_sites = array();
+    foreach ($sites as $site ) {
+      $search_in_sites[] = $site['blog_id'];
+    }
+
+    echo '<input type="hidden" value="' . implode( ',', $search_in_sites ) . '" name="searchblogs">';
+    
+  }
+
+  return false;
+
+}
 
 
 /**
