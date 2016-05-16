@@ -33,6 +33,15 @@ Utveckla i dev gren. Sammanfoga till master vid ny release och uppdatera version
 
 *Större ändringar . Antal ändringar och nya funktioner . Antal åtgärdade buggar*
 
+####1.2.1
+**Ändringar**
+
+- Utökade behörigheter för att tillgängliggöra en administratör att skapa och hantera bloggar för nätverket.
+
+**Buggfix**
+
+- Korrigeringen av föråldrad funktion (depricated function notice).
+
 ####1.1.0
 Utskriftsvänliga sidor
 
