@@ -33,6 +33,15 @@ Utveckla i dev gren. Sammanfoga till master vid ny release och uppdatera version
 
 *Större ändringar . Antal ändringar och nya funktioner . Antal åtgärdade buggar*
 
+####1.3.2
+**Ändringar**
+
+- Relevanssi plugin för sökning i nätverk.
+
+**Buggfix**
+
+- Korrigeringen av föråldrad funktion (depricated function notice).
+
 ####1.2.1
 **Ändringar**
 
