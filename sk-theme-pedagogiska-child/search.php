@@ -41,7 +41,8 @@ Template Name: Sökresultat
                 
                 <ul class="of-meta-line">
                   <li><?php the_time('j F Y H:i'); ?></li>
-                  <li>Webbplats: <?php echo str_replace('SK Pedagogiska', 'Pedagog Sundsvall', $site_info->blogname ); ?></li>
+                  <li><?php echo is_main_site( $post->blog_id ) ? __('Sida', 'sk') : __('Blogg', 'sk'); ?></li>
+                  <?php switch_to_blog( $post->blog_id ); ?>
                   <li><a style="font-weight: normal" href="<?php echo get_permalink(); ?>"><?php echo get_permalink(); ?></a></li>
                 </ul>
               </header>
