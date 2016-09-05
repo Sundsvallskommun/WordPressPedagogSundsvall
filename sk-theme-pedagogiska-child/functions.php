@@ -46,6 +46,21 @@ function theme_enqueue_styles() {
 	wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/assets/css/style.css' );
 }
 
+/**
+ * Adding pipe as separator for gravity forms.
+ *
+ * @author Daniel Söderström <daniel.soderstrom@cybercom.com>
+ *
+ * @param  string $separator
+ * @param  int $form_id
+ *
+ * @return string
+ */
+function change_separator( $separator, $form_id ) {
+	return '|';
+}
+add_filter( 'gform_export_separator', 'change_separator', 10, 2 );
+
 
 /**
  * Add searchable sites to search form if relevanssi is activated.
@@ -58,11 +73,11 @@ function sk_is_multisite_search() {
 
 	if ( function_exists( 'relevanssi_search_multi' ) ) {
 		$args = array(
-			'public'   => true,
-			'archived' => false,
-			'mature'   => false,
-			'spam'     => false,
-			'deleted'  => false
+			'public'   => 1,
+			'archived' => 0,
+			'mature'   => 0,
+			'spam'     => 0,
+			'deleted'  => 0
 		);
 
 		$sites = get_sites( $args );
