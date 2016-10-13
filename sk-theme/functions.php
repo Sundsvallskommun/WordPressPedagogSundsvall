@@ -14,6 +14,12 @@ require_once locate_template( '/lib/helpers/advanced-template.php' );
 require_once locate_template( '/lib/helpers/general-template.php' );
 
 /**
+ * Custom Capabilities
+ */
+require_once locate_template( '/lib/class-sk-capabilities.php' );
+$sk_capabilities = new SK_Capabilities();
+
+/**
  * Theme basics and structure.
  */
 require_once locate_template( '/lib/class-sk-init.php' );
