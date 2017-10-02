@@ -27,7 +27,9 @@ class SK_Custom_Capabilities {
 	 * 
 	 * @author Daniel Söderström <daniel.soderstrom@cybercom.com>
 	 * 
-	 * @param  object $wp_admin_bar
+	 * @param  object $user_id
+	 *
+	 * @return bool
 	 */
 	public function add_capabilities( $user_id ) {
 
@@ -127,6 +129,8 @@ class SK_Custom_Capabilities {
 	 * @author Daniel Söderström <daniel.soderstrom@cybercom.com>
 	 * 
 	 * @param  object $user
+	 *
+	 * @return bool/echo
 	 */
 	public function add_user_meta_field( $user ){
 		if(! is_super_admin() )

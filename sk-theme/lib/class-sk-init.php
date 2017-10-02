@@ -48,7 +48,6 @@ class SK_Init {
 		add_filter( 'gform_init_scripts_footer', array( &$this, 'gform_init_scripts_footer' ) );
 		add_filter( 'gform_cdata_open', array( &$this, 'gform_cdata_open' ) );
 		add_filter( 'gform_cdata_close', array( &$this, 'gform_cdata_close' ) );
-		add_action( 'admin_init', array( &$this, 'admin_init' ) );
 	}
 
 	/**
@@ -629,15 +628,4 @@ class SK_Init {
 		return $content;
 	}
 
-	/**
-	 * Gravity Forms for editors.
-	 *
-	 * @since 1.0.0
-	 * 
-	 * @return null
-	 */
-	public function admin_init() {
-		$role = get_role( 'editor' );
-		$role->add_cap( 'gform_full_access' );
-	}
 }
