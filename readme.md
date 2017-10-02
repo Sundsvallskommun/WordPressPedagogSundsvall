@@ -33,6 +33,12 @@ Utveckla i dev gren. Sammanfoga till master vid ny release och uppdatera version
 
 *Större ändringar . Antal ändringar och nya funktioner . Antal åtgärdade buggar*
 
+
+####1.5.0
+**Ändringar**
+- Ändring av länkar till cdn så att de är ssl kompatibla.
+- Ändring av WP_Site, returnerar objekt istället för array.
+
 ####1.3.2
 **Ändringar**
 
