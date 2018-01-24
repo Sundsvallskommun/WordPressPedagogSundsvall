@@ -34,6 +34,11 @@ Utveckla i dev gren. Sammanfoga till master vid ny release och uppdatera version
 *Större ändringar . Antal ändringar och nya funktioner . Antal åtgärdade buggar*
 
 
+####1.5.2
+**Buggfix**
+- Åtgärd av tag entity warning.
+- Åtgärd av fel länk till bloggar i sökresultat.
+
 ####1.5.0
 **Ändringar**
 - Ändring av länkar till cdn så att de är ssl kompatibla.
