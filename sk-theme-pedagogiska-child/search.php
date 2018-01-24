@@ -13,8 +13,8 @@ Template Name: Sökresultat
 				<ul class="of-post-list">
 					<?php
 					while ( have_posts() ) :
-						switch_to_blog( $post->blog_id );
 						the_post();
+						switch_to_blog( $post->blog_id );
 						$site_info = get_blog_details( $post->blog_id );
 						?>
 						<li>
@@ -30,9 +30,7 @@ Template Name: Sökresultat
 										</a>
 									</figure>
 								<?php endif; ?>
-
 								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-
 								<?php if ( '' == $post->post_excerpt ): ?>
 									<?php the_custom_field_excerpt( 'content_block' ); ?>
 								<?php else: ?>
@@ -42,7 +40,7 @@ Template Name: Sökresultat
 								<ul class="of-meta-line">
 									<li><?php the_time( 'j F Y H:i' ); ?></li>
 									<li><?php echo is_main_site( $post->blog_id ) ? __( 'Sida', 'sk' ) : __( 'Blogg', 'sk' ); ?></li>
-									<?php switch_to_blog( $post->blog_id ); ?>
+
 									<li><a style="font-weight: normal"
 									       href="<?php echo get_permalink(); ?>"><?php echo get_permalink(); ?></a></li>
 								</ul>

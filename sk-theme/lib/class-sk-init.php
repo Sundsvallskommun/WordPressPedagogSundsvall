@@ -146,32 +146,38 @@ class SK_Init {
 	 */
 	public function add_of_element_class( $content ) {
 		// Ul - Only replace lists without classes because of Gravity Forms, etc.
-	  $content = str_replace( '<ul>', '<ul class="sk-list">', $content );
+		$content = str_replace( '<ul>', '<ul class="sk-list">', $content );
 
-	  if( !empty( $content ) ) {
-	  	
-	  	// Convert encoding for DOMDocuments loadHTML
-	  	$content = mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' );
-	    
-	    // Table
-	    $doc = new DOMDocument();
+		if ( ! empty( $content ) ) {
 
-	    // You should be able to use LIBXML_HTML_NOIMPLIED to remove html and body elements, but there is a bug that moves around elements.
-	    //$doc->loadHTML( $content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD ); 
-	    $doc->loadHTML( $content, LIBXML_HTML_NODEFDTD ); 
+			// Convert encoding for DOMDocuments loadHTML
+			$content = mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' );
 
-	    foreach( $doc->getElementsByTagName( 'table' ) as $tag ) {
-	      $tag->setAttribute( 'class', 'of-table of-table-even-odd' );
-	    }
+			// Table
+			$doc = new DOMDocument();
 
-	    // Fixes the LIBXML_HTML_NOIMPLIED error. Quite ugly.
-	    $content = str_replace( array('<html>', '</html>', '<body>', '</body>'), array('', '', '', ''), $doc->saveHTML());
+			// You should be able to use LIBXML_HTML_NOIMPLIED to remove html and body elements, but there is a bug that moves around elements.
+			//$doc->loadHTML( $content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
+			libxml_use_internal_errors( true );
+			$doc->loadHTML( $content, LIBXML_HTML_NODEFDTD );
+			libxml_use_internal_errors( false );
+			foreach ( $doc->getElementsByTagName( 'table' ) as $tag ) {
+				$tag->setAttribute( 'class', 'of-table of-table-even-odd' );
+			}
 
-	    $content = mb_convert_encoding( $content, 'UTF-8', 'HTML-ENTITIES' );
+			// Fixes the LIBXML_HTML_NOIMPLIED error. Quite ugly.
+			$content = str_replace( array( '<html>', '</html>', '<body>', '</body>' ), array(
+				'',
+				'',
+				'',
+				''
+			), $doc->saveHTML() );
 
-	  }
+			$content = mb_convert_encoding( $content, 'UTF-8', 'HTML-ENTITIES' );
 
-	  return $content;
+		}
+
+		return $content;
 	}
 
 	/**
